@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "tambah.h"
+#include "ryan.h"
 
 float tambah (float x, float y){
 	

@@ -2,7 +2,7 @@
 
 void operasi (float angkaPertama, float angkaKedua, float hasilKalkulasi) {
 	char operatorKalkulasi;
-	printf ("Operasi yang dilakukan : ", angkaPertama);
+	printf ("Operasi yang dilakukan : ");
 	printf("(+ - * /)");
 	scanf ("%s", &operatorKalkulasi);
 	
@@ -20,9 +20,9 @@ void operasi (float angkaPertama, float angkaKedua, float hasilKalkulasi) {
 			hasilKalkulasi = bagi (angkaPertama, angkaKedua);
 			break;
 		default :
-			printf ("Anda salah memasukkan");
+			printf ("Anda salah memasukkan\n");
 			break;
 	}	
-	printf ("%g", hasilKalkulasi);
+	printf ("%g \n", hasilKalkulasi);
 }
 
