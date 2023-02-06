@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bagi.h"
+#include "Hafidzon.h"
 
 int main()
 {
@@ -13,4 +13,3 @@ int main()
 	printf("\n%g / %g\t:\t%g", a, b, hsl);
 	
 	return 0;
-}

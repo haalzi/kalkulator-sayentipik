@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bagi.h"
+#include "Hafidzon.h"
 
 float bagi(float x, float y)
 {
