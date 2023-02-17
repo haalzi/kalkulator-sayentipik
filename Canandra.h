@@ -3,9 +3,8 @@
 
 
 	//------------------------PROCEDURE----------------------------//
-	void menu(); //deklarasi menu
+	void menu(); //deklarasi menu awal
 	
-
 	//-------------------------FUNCTION----------------------------//
 	float perkalian(float x, float y); //deklarasi function perkalian
 	

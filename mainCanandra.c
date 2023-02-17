@@ -39,6 +39,7 @@
 			default:
 				system("cls");
 				printf("Inputan yang anda masukkan salah!\n\n");
+				printf("...");
 				goto here;
 				
 		}

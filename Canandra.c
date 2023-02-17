@@ -1,6 +1,6 @@
 #include "Canandra.h"
 #include <stdio.h>
-#define n 20
+#define n 40
 
 	//MENu
 	void menu()
