@@ -1,30 +1,45 @@
 #include "Canandra.h"
 #include <stdio.h>
+#define n 20
 
+	//MENu
+	void menu()
+	{
+		printf("1.Perkalian\n");
+		printf("2.Sin\n");
+	}
+
+	
 	//perkalian
 	float perkalian(float x, float y)
 	{
+
 		float hasil;
-		hasil = x*y;
-		return(hasil);
+		return hasil = x*y;
 	}
 	
-	//sinus
-	float sinus(float x, int a)
+		float sinus(float x) //sin
 	{
-		float t = x;
-		float sin = t;
-		int b;
-		for ( b=1; b<a; b++)
+		float hasil;
+		float faktorial;
+		float pangkat;
+		int i,j;
+		
+		hasil = 0.0;
+		for( i = 0; i <= n; i++)
 		{
-			float kali = -x*x/((2*b+1)*(2*b));
-			t *= kali;
-			sin += t;
+			faktorial = 1.0;
+			pangkat = 1.0;
+			for(j = 1; j <= 2*i+1; j++)
+			{
+				faktorial *= j;
+				pangkat *= x;
+			}
+			hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
 		}
-		return sin;
+		return hasil;
 	}
 	
-	float convert(float x)
-	{
-		return x/57.0;
-	}
+	
+
+	

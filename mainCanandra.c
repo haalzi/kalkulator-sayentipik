@@ -3,27 +3,46 @@
 #include <stdlib.h>
 
 	//deklarsi
-	float a,b,hasilmain,hasilsinus;
-
+	float a, b, hasilx, hasils;
+	int opt1;
+	
 	int main()
 	{
-		printf("INI ADALAH PERKALIAN\n");
-		printf("Masukkan angka pertama :");
-		scanf("%g", &a);
-		printf("Masukkan angka kedua :");
-		scanf("%g", &b);
-		hasilmain = perkalian(a,b);
-		printf("\nHasil perkaliannya adalah : %g\n", hasilmain);
+		here:
+		menu();
+		printf("\nAyo pilih : ");
+		scanf("%d", &opt1);
+		system("cls");
+		
+		switch (opt1)
+		{
+			case 1:
+				printf("PERKALIAN\n\n");
+				printf("Masukkan angka pertama : ");
+				scanf("%g", &a);
+				printf("Masukkan angka kedua :");
+				scanf("%g", &b);
+				hasilx = perkalian(a,b);
+				printf("Hasilnya adalah : %g", hasilx);
+				break;
+
+			case 2:
+				printf("SIN\n");
+				printf("Masukkan derajat : ");
+				scanf("%g", &a);
+				a = (3.1415926535897931*a)/180.0;
+				sinus(a);
+				hasils = sinus(a);
+				printf("SIN(%g) = %f\n", a, hasils);
+				break;
+
+			default:
+				system("cls");
+				printf("Inputan yang anda masukkan salah!\n\n");
+				goto here;
+				
+		}
 	
-		
-		printf("\nINI ADALAH FUNCTION SINUS\n");
-		printf("Masukkan derajat dalam radian :");
-		scanf("%g", &a);
-		printf("Masukkan  nilai sembarang (5-200) :");
-		scanf("%g", &b);
-		hasilsinus = sinus(a,b);
-		printf("\nSinus %.2lf adalah : %.2lf",a ,hasilsinus);
-		
 		
 		return 0;
 		
