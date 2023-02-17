@@ -11,3 +11,7 @@
 	float sinus(float x); //deklarasi function sinus
 	
 	float cosec(float x); //deklarasi function cosec
+	
+	float logbase10(float x); //deklarasi function logaritma base 10
+	
+	float ln(float x); //deklarasi function logaritma natural

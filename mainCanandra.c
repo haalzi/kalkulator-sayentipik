@@ -45,7 +45,16 @@
 				hasilcsc = 1/cosec(a);
 				printf("COSEC(%g) = %f\n", a, hasilcsc);
 				break;
-				
+
+			case 4:
+				printf("LOGARITMA\n");
+				printf("Masukkan sebuah angka : ");
+    			scanf("%g", &b);
+				 a = logbase10(b);
+				printf("log10(%g) = %f\n", b, a);
+
+    			break;
+    			
 			default:
 				system("cls");
 				printf("Inputan yang anda masukkan salah!\n\n");
