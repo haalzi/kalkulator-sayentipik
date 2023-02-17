@@ -1,4 +1,5 @@
 #include "Canandra.h"
+<<<<<<< HEAD
 #include <stdio.h>
 #define n 50
 
@@ -66,3 +67,12 @@
 	
 
 	
+=======
+
+float perkalian(float x, float y)
+{
+	float hasil;
+	hasil = x*y;
+	return(hasil);
+}
+>>>>>>> 18661f08189daaf59b2fe1bcf07f1cfcb3bd8c4b
