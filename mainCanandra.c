@@ -65,7 +65,16 @@
 				scanf("%g", &c);
 				diskriminan(a,b,c);
 				break;
-    			
+
+			case 6:
+				printf("PERMUTASI\n");
+				printf("Masukkan n :");
+				scanf("%g", &a);
+				printf("Masukkan r :");
+				scanf("%g", &b);
+				permutasi(a,b);
+				printf("Permutasi : %g", permutasi(a,b));
+				break;
 
 			default:
 				system("cls");

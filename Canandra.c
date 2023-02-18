@@ -11,6 +11,9 @@
 		printf("3.Cosec\n");
 		printf("4.Logaritma\n");
 		printf("5.Diskriminan");
+		printf("5.Diskriminan\n");
+		printf("6.Permutasi");
+
 	}
 
 	
@@ -121,3 +124,21 @@
 			}
 		
 	}
+
+	//--------------------------permutasi
+	float faktorial(float x)
+	{
+		if (x==0 || x==1)
+		{
+			return 1;
+		}
+		else
+		
+			return x * faktorial(x-1);
+	}
+	
+	float permutasi(float x, float y)
+	{
+		return faktorial(x)/faktorial(x-y);
+	}
+
