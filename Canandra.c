@@ -1,83 +1,4 @@
 #include "Canandra.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
-#include <stdio.h>
-#define n 50
-
-	//MENu
-	void menu()
-	{
-		printf("1.Perkalian\n");
-		printf("2.Sin\n");
-		printf("3.Cosec\n");
-	}
-
-	
-	//perkalian
-	float perkalian(float x, float y)
-	{
-
-		float hasil;
-		return hasil = x*y;
-	}
-	
-		float sinus(float x) //sin
-	{
-		float hasil;
-		float faktorial;
-		float pangkat;
-		int i,j;
-		
-		hasil = 0.0;
-		for( i = 0; i <= n; i++)
-		{
-			faktorial = 1.0;
-			pangkat = 1.0;
-			for(j = 1; j <= 2*i+1; j++)
-			{
-				faktorial *= j;
-				pangkat *= x;
-			}
-			hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
-		}
-		return hasil;
-	}
-	
-	float cosec(float x) //cosec
-	{
-		float hasil;
-		float faktorial;
-		float pangkat;
-		int i,j;
-
-		hasil = 0.0;
-		for( i = 0; i <= n; i++)
-		{
-			faktorial = 1.0;
-			pangkat = 1.0;
-			for(j = 1; j <= 2*i+1; j++)
-			{
-				faktorial *= j;
-				pangkat *= x;
-			}
-			hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
-		}
-		return hasil;
-	}
-	
-	
-
-	
-=======
-
-float perkalian(float x, float y)
-{
-	float hasil;
-	hasil = x*y;
-	return(hasil);
-}
->>>>>>> 18661f08189daaf59b2fe1bcf07f1cfcb3bd8c4b
-=======
 #include <stdio.h>
 #define n 50
 #define LN10 2.3025850929940456840179914546844
@@ -88,11 +9,12 @@ float perkalian(float x, float y)
 		printf("1.Perkalian\n");
 		printf("2.Sin\n");
 		printf("3.Cosec\n");
-		printf("4.Logaritma");
+		printf("4.Logaritma\n");
+		printf("5.Diskriminan");
 	}
 
 	
-	//perkalian
+	//--------------prekalian
 	float perkalian(float x, float y)
 	{
 
@@ -100,7 +22,8 @@ float perkalian(float x, float y)
 		return hasil = x*y;
 	}
 	
-		float sinus(float x) //sin
+		//---------sin
+		float sinus(float x)
 	{
 		float hasil;
 		float faktorial;
@@ -122,7 +45,8 @@ float perkalian(float x, float y)
 		return hasil;
 	}
 	
-	float cosec(float x) //cosec
+	//------------cosec
+	float cosec(float x)
 	{
 		float hasil;
 		float faktorial;
@@ -144,6 +68,7 @@ float perkalian(float x, float y)
 		return hasil;
 	}
 	
+	//------------log baasis 10
 	float logbase10(float x)
 	{
     	return ln(x) / LN10;
@@ -170,4 +95,29 @@ float perkalian(float x, float y)
 	    return 2.0 * sum;
 	}
 	
->>>>>>> 1fc8e2a508a599dfd8bde482c47a4f3e0fd81c00
+	//-------------------------diskriminan
+	float diskriminan(float x, float y, float z)
+	{
+		float Diskriminan;
+		float akar1, akar2, real, imajiner;
+		
+		Diskriminan = x*x - 4 * y * z;
+		if (Diskriminan == 0)
+		{
+			akar1 = akar2 = -x/(2*y);
+			printf("akar1 = akar2 = %.2lf", akar1);
+		}
+		else if(Diskriminan > 0)
+			{
+				akar1 = (-x + sqrt(Diskriminan))/(2*y);
+				akar2 = (-x - sqrt(Diskriminan))/(2*y);
+				printf("akar 1 = %.2lf dan akar 2 = %.lf", akar1, akar2);
+			}
+			else
+			{
+				real = -x/(2*y);
+				imajiner = sqrt(-Diskriminan)/(2*z);
+				printf("akar 1 = %.2lf + %.2lfi dan akar 2 = %.2f-%.2fi", real, imajiner, real, imajiner);
+			}
+		
+	}

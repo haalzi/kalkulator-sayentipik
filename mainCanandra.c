@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 	//deklarsi
-	float a, b, hasilx, hasils, hasilcsc;
+	float a, b, c, hasilx, hasils, hasilcsc;
 	int opt1;
 	
 	int main()
@@ -45,9 +45,6 @@
 				hasilcsc = 1/cosec(a);
 				printf("COSEC(%g) = %f\n", a, hasilcsc);
 				break;
-<<<<<<< HEAD
-				
-=======
 
 			case 4:
 				printf("LOGARITMA\n");
@@ -55,19 +52,27 @@
     			scanf("%g", &b);
 				 a = logbase10(b);
 				printf("log10(%g) = %f\n", b, a);
+				break;
 
-    			break;
+			case 5:
+				printf("DISKRIMINAN\n");
+				printf("Masukkan koefisien :\n");
+				printf("b : ");
+				scanf("%g", &a);
+				printf("a : ");
+				scanf("%g", &b);
+				printf("c : ");
+				scanf("%g", &c);
+				diskriminan(a,b,c);
+				break;
     			
->>>>>>> 1fc8e2a508a599dfd8bde482c47a4f3e0fd81c00
+
 			default:
 				system("cls");
 				printf("Inputan yang anda masukkan salah!\n\n");
 				printf("...");
 				goto here;
-				
 		}
 	
-		
 		return 0;
-		
 	}
