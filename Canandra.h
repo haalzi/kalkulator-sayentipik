@@ -15,3 +15,5 @@
 	float logbase10(float x); //deklarasi function logaritma base 10
 	
 	float ln(float x); //deklarasi function logaritma natural
+
+	float diskriminan(float x, float y, float z); //dkelarasi function diskriminan
