@@ -10,7 +10,8 @@
 		printf("2.Sin\n");
 		printf("3.Cosec\n");
 		printf("4.Logaritma\n");
-		printf("5.Diskriminan");
+		printf("5.Diskriminan\n");
+		printf("6.Permutasi");
 	}
 
 	
@@ -120,4 +121,21 @@
 				printf("akar 1 = %.2lf + %.2lfi dan akar 2 = %.2f-%.2fi", real, imajiner, real, imajiner);
 			}
 		
+	}
+	
+	//--------------------------permutasi
+	float faktorial(float x)
+	{
+		if (x==0 || x==1)
+		{
+			return 1;
+		}
+		else
+		
+			return x * faktorial(x-1);
+	}
+	
+	float permutasi(float x, float y)
+	{
+		return faktorial(x)/faktorial(x-y);
 	}
