@@ -3,96 +3,25 @@
 //MENu
 void menuCanandra()
 {
-	float a, b, c, hasil;
-	char opt1;
-	
 	printf("1.Perkalian\n");
 	printf("2.Sin\n");
 	printf("3.Cosec\n");
 	printf("4.Logaritma\n");
 	printf("5.Diskriminan\n");
-	printf("6.Permutasi");
-	inputKarakter (&opt1);
-	
-	switch (opt1)
-	{
-//		case '1':
-//			printf("PERKALIAN\n\n");
-//			printf("Masukkan angka pertama : ");
-//			scanf("%g", &a);
-//			printf("Masukkan angka kedua :");
-//			scanf("%g", &b);
-//			hasilx = perkalian(a,b);
-//			printf("Hasilnya adalah : %g", hasilx);
-//			break;
-
-		case '2':
-			printf("SIN\n");
-			printf("Masukkan derajat : ");
-			inputAngka (&a);
-			a = (3.1415926535897931*a)/180.0;
-			sinus(a);
-			hasil = sinus(a);
-			printf("SIN(%g) = %f\n", a, hasil);
-			break;
-
-		case '3':
-			printf("COSEC\n");
-			printf("Masukkan derajat : ");
-			inputAngka (&a);
-			a = (3.1415926535897931*a)/180.0;
-			cosec(a);
-			hasil = 1/cosec(a);
-			printf("COSEC(%g) = %f\n", a, hasil);
-			break;
-
-		case '4':
-			printf("LOGARITMA\n");
-			printf("Masukkan sebuah angka : ");
-			inputAngka (&b);
-			a = logbase10(b);
-			printf("log10(%g) = %f\n", b, a);
-			break;
-
-		case '5':
-			printf("DISKRIMINAN\n");
-			printf("Masukkan koefisien :\n");
-			printf("b : ");
-			inputAngka (&a);
-			printf("a : ");
-			inputAngka (&b);
-			printf("c : ");
-			inputAngka (&c);
-			diskriminan(a,b,c);
-			break;
-
-		case '6':
-			printf("PERMUTASI\n");
-			printf("Masukkan n :");
-			inputAngka (&a);
-			printf("Masukkan r :");
-			inputAngka (&b);
-			permutasi(a,b);
-			printf("Permutasi : %g", permutasi(a,b));
-			break;
-			
-
-		default:
-			pesanEror ();
-			break;
-	}
+	printf("6.Permutasi\n");
+	printf("7.Lingkaran");
 }
-
-
+	
 //--------------prekalian
 float perkalian(float x, float y)
 {
+
 	float hasil;
 	return hasil = x*y;
 }
 
 	//---------sin
-float sinus(float x)
+	float sinus(float x)
 {
 	float hasil;
 	float faktorial;
@@ -206,4 +135,9 @@ float faktorial(float x)
 float permutasi(float x, float y)
 {
 	return faktorial(x)/faktorial(x-y);
+}
+
+float lingkaran(float x)
+{
+	return phi*x*x;
 }

@@ -3,6 +3,7 @@
 #include "Rahaditya.h"
 #define n 50
 #define LN10 2.3025850929940456840179914546844
+#define phi 22/7
 
 //------------------------PROCEDURE----------------------------//
 void menuCanandra(); //deklarasi menu awal
@@ -22,3 +23,5 @@ float diskriminan(float x, float y, float z); //dkelarasi function diskriminan
 
 float permutasi(float x, float y); //deklarasi function permutasi
 float faktorial(float x); //fungsi yang digunakan untuk membantu proses permutasi
+
+float lingkaran(float x); //fungsi yang digunakan untuk mencari luas lingkaran
