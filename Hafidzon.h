@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-float bagi(float x, float y);
+float bagi (float x, float y);
