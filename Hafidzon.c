@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "exp.h"
+#define pi 3.14159265358979323846
 
 float bagi(double x, double y)
 {
@@ -27,4 +28,12 @@ float fact(float n)
     	fact=fact*x; 
    }
    return fact;
+}
+
+float tangen(float x)
+{
+	x = (x * pi / 180.0);
+    x = tan(x);
+//    printf("tan(%.2lf) = %.2lf\n", x, result);
+	return x;
 }
