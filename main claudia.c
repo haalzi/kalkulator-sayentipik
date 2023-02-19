@@ -17,13 +17,6 @@ int main(){
      printf(" %g - %g= %g\n",a,b,hasil);
      
 
-	 //cosinus
-     printf("masukan angka pertama :");
-     scanf("%g",&a);
-     printf("masukan angka kedua: ");
-     scanf("%g",&b);
-      printf("cos(%.2lg) = %.2lg\n", a, cos(a));
-      
      
 	  //logaritma natural
       printf("masukan angka pertama: ");
@@ -107,20 +100,20 @@ int main(){
  int c[5][5];
  int x,y,det;
 
- printf("masukkan jumlah kolom matriks : ");
+ printf("masukkan jumlah  matriks : ");
  scanf("%d",&x);
- printf("masukkan jumlah baris matriks : ");
+ printf("masukkan jumlah  matriks : ");
  scanf("%d",&y); 
 
- for (i=0;i<2;i++){
- 	for (j=0;j<2;j++){
+ for (i=0;i<3;i++){
+ 	for (j=0;j<3;j++){
  		printf("masukkan elemen [%d] [%d ]: ",i+1,j+1);
         scanf("%d",&c[i][j]);
 	 }
  }
  printf("Matriks A: \n");
- for (i=0; i< 2; i++){
-    for (j=0; j<2; j++){
+ for (i=0; i< 3; i++){
+    for (j=0; j<3; j++){
      printf("%3d", c[i][j]);
     }
     printf("\n");
@@ -129,20 +122,29 @@ det = (c[1][1]*c[2][2]-c[2][1]*c[1][2]);
 while(hasil !=0)
  hasil = 1/det;
 
-  c[1][1] = hasil*c[2][2];
-  c[1][2] = hasil*c[2][1];
-  c[2][1] = hasil*c[1][2];
-  c[1][2] = hasil*c[1][1];
-
 
   printf("invers matriks \n");
-   for (i=0; i< 2; i++){
-      for (j=0; j<2; j++){
+   for (i=0; i< 3; i++){
+      for (j=0; j<3; j++){
      printf("%3d", c[i][j]);
      }
      printf("\n");
 	}
   
+	
+      //cosinus
+     float PI= 3.141;
+     printf("masukan angka pertama :");
+     scanf("%f",&a);
+     printf("cos( %.2lg ) = %lf\n", a, cos( (a * PI) / 180 ));
+    
+    
+    //secan
+	 printf("masukan angka pertama :");
+     scanf("%f",&a);
+     printf("sec( %.2lg ) = %lf \n", a, 1/cos((a * PI) / 180 ));
+   
+	
     return 0;
 }
     
