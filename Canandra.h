@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-
-float perkalian (float x, float y); //deklarasi function perkalian
+#include "Rahaditya.h"
+#define n 50
+#define LN10 2.3025850929940456840179914546844
 
 //------------------------PROCEDURE----------------------------//
 void menuCanandra(); //deklarasi menu awal

@@ -14,6 +14,7 @@
 #include "Hafidzon.h"
 
 float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi);
+void pesanEror ();
 void inputKarakter (char * karakter);
 void inputAngka (float * inputAngka);
 

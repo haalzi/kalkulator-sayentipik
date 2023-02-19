@@ -20,6 +20,11 @@ float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi) {
 	}
 }
 
+void pesanEror () {
+	printf ("Anda memasukkan input yang salah, tekan apapun untuk melanjutkan...");
+	getch ();
+}
+
 void inputKarakter (char * karakter) {
 	printf ("\nInput : ");
 	scanf(" %s", &*karakter);fflush(stdin);

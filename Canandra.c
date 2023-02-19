@@ -1,13 +1,9 @@
 #include "Canandra.h"
-#include "Rahaditya.h"
-#include <stdio.h>
-#define n 50
-#define LN10 2.3025850929940456840179914546844
 
 //MENu
 void menuCanandra()
 {
-	float a, b, c, hasilx, hasils, hasilcsc;
+	float a, b, c, hasil;
 	char opt1;
 	
 	printf("1.Perkalian\n");
@@ -36,8 +32,8 @@ void menuCanandra()
 			inputAngka (&a);
 			a = (3.1415926535897931*a)/180.0;
 			sinus(a);
-			hasils = sinus(a);
-			printf("SIN(%g) = %f\n", a, hasils);
+			hasil = sinus(a);
+			printf("SIN(%g) = %f\n", a, hasil);
 			break;
 
 		case '3':
@@ -46,15 +42,15 @@ void menuCanandra()
 			inputAngka (&a);
 			a = (3.1415926535897931*a)/180.0;
 			cosec(a);
-			hasilcsc = 1/cosec(a);
-			printf("COSEC(%g) = %f\n", a, hasilcsc);
+			hasil = 1/cosec(a);
+			printf("COSEC(%g) = %f\n", a, hasil);
 			break;
 
 		case '4':
 			printf("LOGARITMA\n");
 			printf("Masukkan sebuah angka : ");
 			inputAngka (&b);
-			 a = logbase10(b);
+			a = logbase10(b);
 			printf("log10(%g) = %f\n", b, a);
 			break;
 
@@ -82,9 +78,8 @@ void menuCanandra()
 			
 
 		default:
-//			system("cls");
-			printf("Inputan yang anda masukkan salah!\n\n");
-			printf("...");
+			pesanEror ();
+			break;
 	}
 }
 

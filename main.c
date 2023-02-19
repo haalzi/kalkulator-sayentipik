@@ -37,6 +37,7 @@ int main () {
 				break;
 			case '2':
 				printf ("Sinus (sin) Cosinus (cos) Tangen (tan) Cosecan (cosec) Secan (sec) Cotangen (cot)");
+				menuHafidzon();
 				break;
 			case '3':
 				printf ("Faktorial Kombinasi Permutasi");
@@ -51,11 +52,11 @@ int main () {
 				printf ("Persen (%) ln Mutlak Eksponen Log");
 				break;
 			default:
-				
+				pesanEror ();
 				break;
 		}
 		
-		printf("coba lagi? (y/t) ");
+		printf("\ncoba lagi? (y/t) ");
 		inputKarakter (&ulang);
 		if (ulang == 't' || ulang == 'T') {
 			break;
