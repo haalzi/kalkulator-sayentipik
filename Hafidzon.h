@@ -1,3 +1,6 @@
 #include <stdio.h>
 
-float bagi (float x, float y);
+float bagi(double x, double y);
+float exponen(float base, int exp);
+float fact(float n);
+float tangen(float x);
