@@ -1,4 +1,5 @@
 #include <stdio.h>
 
 float bagi(double x, double y);
-double exponen(double base, int exp);
+float exponen(float base, int exp);
+float fact(float n);
