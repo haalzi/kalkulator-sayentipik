@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-<<<<<<< HEAD
 float perkalian (float x, float y); //deklarasi function perkalian
-=======
 
 	//------------------------PROCEDURE----------------------------//
 	void menu(); //deklarasi menu awal
@@ -23,4 +21,3 @@ float perkalian (float x, float y); //deklarasi function perkalian
 	
 	float permutasi(float x, float y); //deklarasi function permutasi
 	float faktorial(float x); //fungsi yang digunakan untuk membantu proses permutasi
->>>>>>> ca6c8869a40cfa48f3ab227eba0cdd748e27a79f
