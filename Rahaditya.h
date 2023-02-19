@@ -5,6 +5,7 @@
 #include <math.h>
 #include <conio.h>
 #include <string.h>
+#include <windows.h>
 
 //Kumpulan header kelompok
 #include "Canandra.h"
@@ -13,6 +14,7 @@
 #include "Hafidzon.h"
 
 float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi);
-void inputOperator (char * operatorKalkulasi);
+void inputKarakter (char * karakter);
+void inputAngka (float * inputAngka);
 
 #endif

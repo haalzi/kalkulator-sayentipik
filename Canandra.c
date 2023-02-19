@@ -1,17 +1,91 @@
 #include "Canandra.h"
+#include "Rahaditya.h"
 #include <stdio.h>
 #define n 50
 #define LN10 2.3025850929940456840179914546844
 
 //MENu
-void menu()
+void menuCanandra()
 {
+	float a, b, c, hasilx, hasils, hasilcsc;
+	char opt1;
+	
 	printf("1.Perkalian\n");
 	printf("2.Sin\n");
 	printf("3.Cosec\n");
 	printf("4.Logaritma\n");
 	printf("5.Diskriminan\n");
 	printf("6.Permutasi");
+	inputKarakter (&opt1);
+	
+	switch (opt1)
+	{
+//		case '1':
+//			printf("PERKALIAN\n\n");
+//			printf("Masukkan angka pertama : ");
+//			scanf("%g", &a);
+//			printf("Masukkan angka kedua :");
+//			scanf("%g", &b);
+//			hasilx = perkalian(a,b);
+//			printf("Hasilnya adalah : %g", hasilx);
+//			break;
+
+		case '2':
+			printf("SIN\n");
+			printf("Masukkan derajat : ");
+			inputAngka (&a);
+			a = (3.1415926535897931*a)/180.0;
+			sinus(a);
+			hasils = sinus(a);
+			printf("SIN(%g) = %f\n", a, hasils);
+			break;
+
+		case '3':
+			printf("COSEC\n");
+			printf("Masukkan derajat : ");
+			inputAngka (&a);
+			a = (3.1415926535897931*a)/180.0;
+			cosec(a);
+			hasilcsc = 1/cosec(a);
+			printf("COSEC(%g) = %f\n", a, hasilcsc);
+			break;
+
+		case '4':
+			printf("LOGARITMA\n");
+			printf("Masukkan sebuah angka : ");
+			inputAngka (&b);
+			 a = logbase10(b);
+			printf("log10(%g) = %f\n", b, a);
+			break;
+
+		case '5':
+			printf("DISKRIMINAN\n");
+			printf("Masukkan koefisien :\n");
+			printf("b : ");
+			inputAngka (&a);
+			printf("a : ");
+			inputAngka (&b);
+			printf("c : ");
+			inputAngka (&c);
+			diskriminan(a,b,c);
+			break;
+
+		case '6':
+			printf("PERMUTASI\n");
+			printf("Masukkan n :");
+			inputAngka (&a);
+			printf("Masukkan r :");
+			inputAngka (&b);
+			permutasi(a,b);
+			printf("Permutasi : %g", permutasi(a,b));
+			break;
+			
+
+		default:
+//			system("cls");
+			printf("Inputan yang anda masukkan salah!\n\n");
+			printf("...");
+	}
 }
 
 

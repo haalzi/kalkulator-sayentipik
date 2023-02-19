@@ -1,7 +1,6 @@
 #include "Rahaditya.h"
 
 float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi) {
-//	float hasilKalkulasi;
 	switch(operatorKalkulasi) {
 		case '+' :
 			return tambah (angkaPertama, angkaKedua);
@@ -19,11 +18,14 @@ float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi) {
 			return 0;
 			break;
 	}
-//	return hasilKalkulasi;
 }
 
-void inputOperator (char * operatorKalkulasi) {
-	printf ("Operasi yang dilakukan : ");
-	printf ("(+ - * /)");
-	scanf(" %s", &*operatorKalkulasi);fflush(stdin);
+void inputKarakter (char * karakter) {
+	printf ("\nInput : ");
+	scanf(" %s", &*karakter);fflush(stdin);
+}
+
+void inputAngka (float * angka) {
+	printf ("\nInput : ");
+	scanf(" %g", &*angka);fflush(stdin);
 }
