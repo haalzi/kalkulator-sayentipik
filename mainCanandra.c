@@ -29,18 +29,18 @@
 			case 2:
 				printf("SIN\n");
 				printf("Masukkan derajat : ");
-				scanf("%g", &a);
-				a = (3.1415926535897931*a)/180.0;
+				scanf("%f", &a);
+  	        	a = (3.1415926535897931*a)/180.0;
 				sinus(a);
 				hasils = sinus(a);
-				printf("SIN(%g) = %f\n", a, hasils);
+				printf("SIN(%g) = %g\n", a, hasils);
 				break;
 
 			case 3:
 				printf("COSEC\n");
 				printf("Masukkan derajat : ");
 				scanf("%g", &a);
-				a = (3.1415926535897931*a)/180.0;
+  	        	a = (3.1415926535897931*a)/180.0;
 				cosec(a);
 				hasilcsc = 1/cosec(a);
 				printf("COSEC(%g) = %f\n", a, hasilcsc);
@@ -75,7 +75,16 @@
 				permutasi(a,b);
 				printf("Permutasi : %g", permutasi(a,b));
 				break;
-    			
+
+			case 7:
+				printf("LUAS LINGKARAN\n");
+				printf("Masukkan jari-jari (cm):");
+				scanf("%g", &a);
+				lingkaran(a);
+				printf("Luas lingkaran adalah : %g cm^2 ", lingkaran(a));
+				break;
+
+			
 
 			default:
 				system("cls");
