@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+float perkalian (float x, float y); //deklarasi function perkalian
 
 	//------------------------PROCEDURE----------------------------//
 	void menu(); //deklarasi menu awal

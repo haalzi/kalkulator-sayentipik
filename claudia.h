@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-float pengurangan(float a,float b);
+float pengurangan (float a,float b);

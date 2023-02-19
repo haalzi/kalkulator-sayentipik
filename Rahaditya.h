@@ -4,13 +4,15 @@
 #include <stdlib.h>
 #include <math.h>
 #include <conio.h>
+#include <string.h>
 
-//Kumpulan header
+//Kumpulan header kelompok
 #include "Canandra.h"
 #include "ryan.h"
 #include "claudia.h"
 #include "Hafidzon.h"
 
-void operasi (float angkaPertama, float angkaKedua, float hasilKalkulasi);
+float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi);
+void inputOperator (char * operatorKalkulasi);
 
 #endif
