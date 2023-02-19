@@ -45,15 +45,28 @@ int main()
 			printf("Masukan angka yang ingin di tangentkan\t");
 			scanf("%lf", &a);
 			hsl = tangen(a);
-			printf("\nTangent dari %g\t:\t%lf", a, hsl);
-			
+		    if(a == 90 || a == 270)
+    		{
+				printf("\nTangent dari %g adalah tidak hingga", a, hsl);
+			}
+			else
+			{
+				printf("\nTangent dari %g\t:\t%lf", a, hsl);
+			}			
 			break;
 			
 		case 5:
 			printf("Masukan angka yang ingin di cotangentkan\t");
 			scanf("%lf", &a);
 			hsl = 1/tangen(a);
-			printf("\nCoTangent dari %g\t:\t%.lf", a, hsl);
+		    if(a == 0 || a == 180)
+    		{
+				printf("\nCoTangent dari %g adalah tidak hingga", a, hsl);
+			}
+			else
+			{
+				printf("\nCoTangent dari %g\t:\t%lf", a, hsl);
+			}
 			
 			break;
 			

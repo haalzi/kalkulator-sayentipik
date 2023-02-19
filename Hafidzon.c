@@ -34,6 +34,5 @@ float tangen(float x)
 {
 	x = (x * pi / 180.0);
     x = tan(x);
-//    printf("tan(%.2lf) = %.2lf\n", x, result);
 	return x;
 }
