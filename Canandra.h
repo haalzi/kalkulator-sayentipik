@@ -21,3 +21,6 @@
 	float permutasi(float x, float y); //deklarasi function permutasi
 	float faktorial(float x); //fungsi yang digunakan untuk membantu proses permutasi
 
+	float lingkaran(float x); //fungsi yang digunakan untuk mencari luas lingkaran
+	
+	

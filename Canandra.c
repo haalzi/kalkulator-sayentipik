@@ -2,6 +2,7 @@
 #include <stdio.h>
 #define n 50
 #define LN10 2.3025850929940456840179914546844
+#define phi 22/7
 
 	//MENu
 	void menu()
@@ -10,9 +11,9 @@
 		printf("2.Sin\n");
 		printf("3.Cosec\n");
 		printf("4.Logaritma\n");
-		printf("5.Diskriminan");
 		printf("5.Diskriminan\n");
-		printf("6.Permutasi");
+		printf("6.Permutasi\n");
+		printf("7.Lingkaran\n");
 
 	}
 
@@ -34,18 +35,27 @@
 		int i,j;
 		
 		hasil = 0.0;
-		for( i = 0; i <= n; i++)
+		
+		if (x==180 || x==360)
 		{
-			faktorial = 1.0;
-			pangkat = 1.0;
-			for(j = 1; j <= 2*i+1; j++)
-			{
-				faktorial *= j;
-				pangkat *= x;
-			}
-			hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
+			return 0;
 		}
-		return hasil;
+		else
+		{
+
+			for( i = 0; i <= n; i++)
+			{
+				faktorial = 1.0;
+				pangkat = 1.0;
+				for(j = 1; j <= 2*i+1; j++)
+				{
+					faktorial *= j;
+					pangkat *= x;
+				}
+				hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
+			}
+			return hasil;
+		}
 	}
 	
 	//------------cosec
@@ -57,18 +67,26 @@
 		int i,j;
 
 		hasil = 0.0;
-		for( i = 0; i <= n; i++)
+		
+		if(x == 0 || x==360)
 		{
-			faktorial = 1.0;
-			pangkat = 1.0;
-			for(j = 1; j <= 2*i+1; j++)
-			{
-				faktorial *= j;
-				pangkat *= x;
-			}
-			hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
+			return 9;
 		}
-		return hasil;
+		else
+		{
+			for( i = 0; i <= n; i++)
+			{
+				faktorial = 1.0;
+				pangkat = 1.0;
+				for(j = 1; j <= 2*i+1; j++)
+				{
+					faktorial *= j;
+					pangkat *= x;
+				}
+				hasil += ((i%2?-1.0:1.0)/faktorial)*pangkat;
+			}
+			return hasil;
+		}
 	}
 	
 	//------------log baasis 10
@@ -142,3 +160,14 @@
 		return faktorial(x)/faktorial(x-y);
 	}
 
+	//--------------------------llingkaran
+	float lingkaran(float x)
+	{
+		return phi*x*x;
+	}
+	
+	//--------------------------estimasi
+	float estimasi(float x, float y)
+	{
+		return x/y;
+	}
