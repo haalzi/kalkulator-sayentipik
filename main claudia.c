@@ -100,20 +100,20 @@ int main(){
  int c[5][5];
  int x,y,det;
 
- printf("masukkan jumlah  matriks : ");
+ printf("masukkan jumlah baris  matriks : ");
  scanf("%d",&x);
- printf("masukkan jumlah  matriks : ");
+ printf("masukkan jumlah kolom matriks : ");
  scanf("%d",&y); 
 
- for (i=0;i<3;i++){
- 	for (j=0;j<3;j++){
+ for (i=0;i<x;i++){
+ 	for (j=0;j<y;j++){
  		printf("masukkan elemen [%d] [%d ]: ",i+1,j+1);
         scanf("%d",&c[i][j]);
 	 }
  }
  printf("Matriks A: \n");
- for (i=0; i< 3; i++){
-    for (j=0; j<3; j++){
+ for (i=0; i< x; i++){
+    for (j=0; j<y; j++){
      printf("%3d", c[i][j]);
     }
     printf("\n");
@@ -124,8 +124,8 @@ while(hasil !=0)
 
 
   printf("invers matriks \n");
-   for (i=0; i< 3; i++){
-      for (j=0; j<3; j++){
+   for (i=0; i< x; i++){
+      for (j=0; j<y; j++){
      printf("%3d", c[i][j]);
      }
      printf("\n");

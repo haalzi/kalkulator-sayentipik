@@ -54,15 +54,15 @@ int  matriks (int baris, int kolom){
 int invers(int i,int j){
 	int c[5][5];
     int x,y,det,hasil;
-	for (i=0;i<3;i++){
- 	for (j=0;j<3;j++){
+	for (i=0;i<x;i++){
+ 	for (j=0;j<y;j++){
  		printf("masukkan elemen [%d] [%d ]: ",i+1,j+1);
         scanf("%d",&c[i][j]);
 	 }
  }
  printf("Matriks A: \n");
- for (i=0; i< 3; i++){
-    for (j=0; j<3; j++){
+ for (i=0; i< x; i++){
+    for (j=0; j<y; j++){
      printf("%3d", c[i][j]);
     }
     printf("\n");
@@ -72,8 +72,8 @@ while(hasil !=0)
  hasil = 1/det;
 
   printf("invers matriks: \n");
-   for (i=0; i< 3; i++){
-      for (j=0; j<3; j++){
+   for (i=0; i< x; i++){
+      for (j=0; j<y; j++){
      printf("%3d", c[i][j]);
      }
      printf("\n");
