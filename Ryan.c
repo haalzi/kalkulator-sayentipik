@@ -88,6 +88,7 @@ float convertKelvinkeReamur(float kelvin) {
     return (kelvin - 273.15) * 0.8;
 }
 
+/*
 // print matriks
 void printmatriks(float **matriks, int baris, int kolom) {
     int i, j;
@@ -113,11 +114,41 @@ float **transposematriks(float **matriks, int baris, int kolom) {
     }
 
     return transpose;
+} */
+
+// Function to print a matrix
+void printMatrix(float **matrix, int rows, int columns) {
+    int i, j;
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < columns; j++) {
+            printf("%f\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
 }
 
-// convert panjang
-float ConvertPanjang(float Panjang, float fromFactor, float toFactor) {
+// Function to transpose a matrix
+float **transposeMatrix(float **matrix, int rows, int columns) {
+    // Allocate memory for the transpose matrix
+    float **transpose = (float **)malloc(columns * sizeof(float *));
+    for (int i = 0; i < columns; i++) {
+        transpose[i] = (float *)malloc(rows * sizeof(float));
+    }
+
+    // Transpose the matrix
+    for (int i = 0; i < columns; i++) {
+        for (int j = 0; j < rows; j++) {
+            transpose[i][j] = matrix[j][i];
+        }
+    }
+
+    return transpose;
+}
+
+// berfungsi untuk mengubah panjang dari satu satuan ke satuan lainnya
+double ConvertPanjang(double Panjang, double fromFactor, double toFactor) {
     return Panjang * fromFactor / toFactor;
 }
+
 
 
