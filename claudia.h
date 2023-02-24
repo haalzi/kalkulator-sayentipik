@@ -13,7 +13,7 @@ int  matriksperkalian  (int baris, int kolom);
 
 int  matrikspembagian (int baris, int kolom);
 
-int invers(int i ,int j);
+
 
 float cos (float a,float b);
 

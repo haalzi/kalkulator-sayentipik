@@ -5,8 +5,10 @@
 
     
 int main(){
-	//pengurangan
 	float a, b,hasil;
+	
+	//pengurangan
+	
     printf("Masukkan angka pertama: ");
     scanf("%g", &a);
     printf("masukan angka kedua: ");
@@ -15,7 +17,6 @@ int main(){
      hasil=a-b;
      printf(" %g - %g= %g\n",a,b,hasil);
      
-
      
 	  //logaritma natural
       printf("masukan angka pertama: ");
@@ -24,8 +25,7 @@ int main(){
       scanf("%g",&b);
         hasil=log(a);
         printf("ln(%1g)=%1g\n",a,hasil);
-     
-	
+    
 	 //matriks pertambahan  
   int baris, kolom, i, j, matrik1[10][10], matrik2[10][10],jumlah[10][10];
  
@@ -161,6 +161,7 @@ int main(){
          printf("\n");
    }
    
+    
    //matriks pembagian
  
    printf("Input jumlah baris matrik : "); 
@@ -205,10 +206,11 @@ int main(){
          printf("%d\t", jumlah[i][j]);}
          printf("\n");
     }
-    
+  
 
     //invers 2x2
-int c[5][5]={1,2,3,4,5,6,7,8,9};
+
+ int c[2][2]={1,2,3,4};
  int x,y,det;
  
 
@@ -244,20 +246,20 @@ for (i=0; i< 2; i++){
     }
     printf("\n");
 }
+
+   
       //cosinus
      float PI= 3.141;
      printf("masukan angka pertama :");
      scanf("%f",&a);
      printf("cos( %.2lg ) = %lf\n", a, cos( (a * PI) / 180 ));
-    
+  
     
     //secan
 	 printf("masukan angka pertama :");
      scanf("%f",&a);
      printf("sec( %.2lg ) = %lf \n", a, 1/cos((a * PI) / 180 ));
    
-   
-    
 	
     return 0;
 }
