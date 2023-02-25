@@ -1,11 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "Rahaditya.h"
-#define pi 3.14159265358979323846
 
-void menuHafidzon();
-double bagi(double x, double y);
-float exponen(float base, int exp);
-float fact(float x);
+float bagi(double x, double y);
+float exponen(double x, int y);
+float fact(float n);
 float tangen(float x);
+float mutlak(float x);
