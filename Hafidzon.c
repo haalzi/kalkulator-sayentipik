@@ -5,19 +5,13 @@
 
 float bagi(double x, double y)
 {
-	return x/y;
+	return (float)x/y;
 }
 
-float exponen(float x,int y){
-    if(y<0)
-        return 1 / exponen (x,-y);
-    else if(y==0)
-        return 1;
-    else if(y==1)
-        return x;
-	else
-        return x*exponen(x,y-1);
-    }
+float exponen(double x,int y)
+{
+	return pow(x, y);
+}
 
 float fact(float n)
 {
@@ -35,4 +29,9 @@ float tangen(float x)
 	x = (x * pi / 180.0);
     x = tan(x);
 	return x;
+}
+
+float mutlak(float x)
+{
+	return abs(x);
 }
