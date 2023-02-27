@@ -1,8 +1,3 @@
-#ifndef ryan_H
-#define ryan_H
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
 
 // faktor Konversi
 #define KILOMETER 1000.0
@@ -13,23 +8,18 @@
 #define SentiMETER 0.01
 #define MILLIMETER 0.001
 
-// matriks
-#define N 5
+float pertambahan (float x, float y);
 
-// pangkat
-float pangkat(float x, float y);
+float perpangkatan (float x, float y);
 
-// akar
-float akar(float x);
+float akar (float x);
 
-// perjumlahan
-float tambah(float x, float y);
+int modulus (int x, int y);
 
-// modulus
-int modulus(int x, int y);
+float persen (float x);
 
-// kombinasi
-float kombinasi(float x, float y);
+float kombinasi (float x, float y);
+
 
 /* 							KONVERSI SUHU							*/
 				
@@ -66,19 +56,8 @@ float convertKelvinkeReamur(float kelvin);
 /* 							KONVERSI PANJANG							*/
 
 // convert panjang
-double ConvertPanjang(double Panjang, double fromFactor, double toFactor);
-
-/* 							matriks							*/
-
-/*
-// print matriks
-void printMatriks(float **matriks, int baris, int kolom);
-
-// transpose matriks
-float **transposeMatriks(float **matriks, int baris, int kolom); */
-
-float **transposeMatrix(float **matrix, int rows, int columns); 
+float ConvertPanjang(float Panjang, float fromFactor, float toFactor);
 
 void printMatrix(float **matrix, int rows, int columns);
 
-#endif
+float **transposeMatrix(float **matrix, int rows, int columns);

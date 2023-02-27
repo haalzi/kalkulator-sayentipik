@@ -1,37 +1,34 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "exp.h"
-#define pi 3.14159265358979323846
+#include "Rahaditya.h"
 
-float bagi(double x, double y)
-{
-	return (float)x/y;
+float pembagian(float x, float y) {
+	return x / y;
 }
 
-float exponen(double x,int y)
-{
+float eksponen (float x, int y) {
 	return pow(x, y);
 }
 
-float fact(float n)
-{
-	int x;
+float faktorial (float x) {
+	int y;
 	float fact = 1;
-       for(x=1;x<=n;x++)
-   {
-    	fact=fact*x; 
-   }
-   return fact;
+    for (y = 1; y <= x; y++) {
+    	fact = fact * y; 
+	}
+	return fact;
 }
 
-float tangen(float x)
-{
-	x = (x * pi / 180.0);
-    x = tan(x);
+float tangen (float x) {
+	x = (x * phi / 180.0);
+    x = tan (x);
 	return x;
 }
 
-float mutlak(float x)
-{
-	return abs(x);
+float cotangen (float x) {
+	x = (x * phi / 180.0);
+    x = 1 / tan (x);
+	return x;
+}
+
+float mutlak (float x) {
+	return abs (x);
 }

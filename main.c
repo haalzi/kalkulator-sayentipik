@@ -1,66 +1,63 @@
 #include "Rahaditya.h"
 
 int main () {
-	float angkaPertama = 0, angkaKedua = 0, hasilKalkulasi = 0;
-	char operatorKalkulasi, ulang, hasilKalkulasiStr[100], inputMain;
+	char ulang, inputMain, inputMainDLL, outputOperasi;
 	
+	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 	for (;;) {
-		system("cls");
-//		printf ("Masukkan angka yang pertama :");
-//		scanf ("%g", &angkaPertama);
-//		printf ("Masukkan angka yang kedua :");
-//		scanf ("%g", &angkaKedua);
-//		inputOperator (&operatorKalkulasi);
-//		hasilKalkulasi = operasi (angkaPertama, angkaKedua, operatorKalkulasi);
-//		printf ("%g \n", hasilKalkulasi);
-		printf ("   CCCCCC      **     **         ******  **     ** **           **     **********   *******   *******  \n");
-		printf ("  CC////CC    ****   /**        **////**/**    /**/**          ****   /////**///   **/////** /**////** \n");
-		printf (" CC    //    **//**  /**       **    // /**    /**/**         **//**      /**     **     //**/**   /** \n");
-		printf ("/CC         **  //** /**      /**       /**    /**/**        **  //**     /**    /**      /**/*******  \n");
-		printf ("/CC        **********/**      /**       /**    /**/**       **********    /**    /**      /**/**///**  \n");
-		printf ("//CC    CC/**//////**/**      //**    **/**    /**/**      /**//////**    /**    //**     ** /**  //** \n");
-		printf (" //CCCCCC /**     /**/******** //****** //******* /********/**     /**    /**     //*******  /**   //**\n");
-		printf ("  //////  //      // ////////   //////   ///////  //////// //      //     //       ///////   //     // \n");
-		
-		printf ("Pilihan yang tersedia\n");
+		system("title Kalkulator Sainstifik");
+		tampilanLogo ();
+		tampilanStruktur (0);
+		printf ("Pilih :\n");
+		tampilanStruktur (2);
 		printf ("1. Kalkulator\n");
-		printf ("2. Trigonometri\n");
-		printf ("3. Faktorial\n");
-		printf ("4. Matriks\n");
-		printf ("5. Konversi\n");
-		printf ("6. DLL\n");
-		
+		tampilanStruktur (2);
+		printf ("2. Dan lain-lain\n\n");
 		inputKarakter (&inputMain);
 		switch (inputMain) {
 			case '1':
-				menuCanandra();
+				system("title Kalkulator Sainstifik - Kalkulator");
+				tampilanKalkulator(0, "");
+				tampilanKalkulator(kalkulasi(&outputOperasi), &outputOperasi);
 				break;
+			
 			case '2':
-				printf ("Sinus (sin) Cosinus (cos) Tangen (tan) Cosecan (cosec) Secan (sec) Cotangen (cot)");
-				menuHafidzon();
+				system("title Kalkulator Sainstifik - Dan lain-lain");
+				tampilanLogo ();
+				tampilanStruktur (2);
+				printf ("1. Kombinasi\n");
+				tampilanStruktur (2);
+				printf ("2. Permutasi\n");
+				tampilanStruktur (2);
+				printf ("3. Matriks\n");
+				tampilanStruktur (2);
+				printf ("4. Invers\n");
+				tampilanStruktur (2);
+				printf ("5. Transpose\n");
+				tampilanStruktur (2);
+				printf ("6. Diskriminan\n");
+				tampilanStruktur (2);
+				printf ("7. Luas Lingkaran\n");
+				tampilanStruktur (2);
+				printf ("8. Konversi Suhu\n");
+				tampilanStruktur (2);
+				printf ("9. Konversi Panjang\n\n");
+				inputKarakter (&inputMainDLL);
+				tampilanDLL (inputMainDLL);
 				break;
-			case '3':
-				printf ("Faktorial Kombinasi Permutasi");
-				break;
-			case '4':
-				printf ("Matriks Invers Determinan");
-				break;
-			case '5':
-				printf ("");
-				break;
-			case '6':
-				printf ("Persen (%) ln Mutlak Eksponen Log");
-				break;
+			
 			default:
-				pesanEror ();
+				pesanEror();
 				break;
 		}
-		
-		printf("\ncoba lagi? (y/t) ");
+		printf ("\n");
+		tampilanStruktur (2);
+		printf("coba lagi? (y/t)\n");
 		inputKarakter (&ulang);
 		if (ulang == 't' || ulang == 'T') {
 			break;
 		}
 	}
+	
 	return 0;
 }
