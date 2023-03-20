@@ -1,12 +1,11 @@
 
 #include <stdlib.h>
-#include <math.h>
 #include "claudia.h"
-
-    
+   
 int main(){
 	float a, b,hasil;
-	
+   
+	 
 	//pengurangan
 	
     printf("Masukkan angka pertama: ");
@@ -19,12 +18,11 @@ int main(){
      
      
 	  //logaritma natural
-      printf("masukan angka pertama: ");
-      scanf("%g",&a);
-      printf("masukan angka kedua: ");
-      scanf("%g",&b);
-        hasil=log(a);
-        printf("ln(%1g)=%1g\n",a,hasil);
+    double x ;
+   printf("Masukkan nilai Logaritma natural:");
+   scanf("%lf",&x);
+    double result = ln(x);
+    printf("ln(%g) = %g\n", x, result);
     
 	 //matriks pertambahan  
   int baris, kolom, i, j, matrik1[10][10], matrik2[10][10],jumlah[10][10];
@@ -208,59 +206,31 @@ int main(){
     }
   
 
-    //invers 2x2
+    //invers 
 
- int c[2][2]={1,2,3,4};
- int x,y,det;
- 
+    double bilangan, invers;
 
- for (i=0;i<2;i++){
- 	for (j=0;j<2;j++){
- 		printf("masukkan elemen [%d] [%d ]: ",i+1,j+1);
-        scanf("%d",&c[i][j]);
-	 }
- }
- printf("Matriks A: \n");
- for (i=0; i< 2; i++){
-    for (j=0; j<2; j++){
-     printf("%3d", c[i][j]);
-    }
-    printf("\n");
-}
-det=c[0][0]*c[1][1]-c[1][0]*c[0][1];
-int A2[2][2];
-A2[1][1]=c[0][0];
-A2[0][0]=c[1][1];
-A2[0][1]=c[0][1]*-1;
-A2[1][0]=c[1][0]*-1;
-A2[1][1]=c[0][0];
-A2[0][0]=c[1][1];
-A2[0][1]=c[0][1]*-1;
-A2[1][0]=c[1][0]*-1;
+    printf("Masukkan bilangan: ");
+    scanf("%lf", &bilangan);
 
-printf("Invres: \n");
-for (i=0; i< 2; i++){
-    for (j=0; j<2; j++){
-     
-     printf("%3d",  A2[i][j]/det);
-    }
-    printf("\n");
-}
+    invers = 1.0 / bilangan;
 
-   
-      //cosinus
-     float PI= 3.141;
-     printf("masukan angka pertama :");
-     scanf("%f",&a);
-     printf("cos( %.2lg ) = %lf\n", a, cos( (a * PI) / 180 ));
-  
+    printf("Invers (%g) adalah %lf\n", bilangan, invers);
+
+	 //cosinus
+    double degrees;
+    printf("Masukkan nilai sudut  cosin dalam derajat: ");
+    scanf("%lf", &degrees);
+    double cos_val = cosine(degrees);
+    printf("Cosine dari (%.2lf) adalah %.1f", degrees, cos_val);
     
-    //secan
-	 printf("masukan angka pertama :");
-     scanf("%f",&a);
-     printf("sec( %.2lg ) = %lf \n", a, 1/cos((a * PI) / 180 ));
-   
-	
+   //secan
+     double degrees1;
+    printf("\nMasukkan nilai sudut secan dalam derajat: ");
+    scanf("%lf", &degrees1);
+     double cos_val1 = secan(degrees1);
+    printf("secan dari (%.2lf) adalah %.1f", degrees1, cos_val1);
+    
     return 0;
 }
 

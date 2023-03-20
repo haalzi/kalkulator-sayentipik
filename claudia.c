@@ -10,12 +10,27 @@ float pengurangan(float a,float b){
 	return a-b;
 }
  
+//modul logaritma natural
+double pangkat(double base, int exponent) {
+    double result = 1;
+    for (int i = 0; i < exponent; i++) {
+        result *= base;
+    }
+    return result;
+}
 
-float ln(float a,float b){
-        float hasil;
-        hasil=log(a);
-        
-    return a,hasil;
+double ln(double x) {
+    double epsilon = 0.00000001;
+    double result = 0.0;
+    double numerator = x - 1;
+    double denominator = 1.0;
+    int i = 1;
+    while (numerator / denominator > epsilon) {
+        result += numerator / denominator;
+        numerator = -numerator * (x - 1);
+        denominator = ++i;
+    }
+    return result;
 }
 
 int  matrikspenjumlahan (int baris, int kolom){
@@ -60,52 +75,80 @@ int  matrikspembagian (int baris, int kolom){
     return jumlah[i][j];
 }
 
-int invers(int i,int j){
- int c[2][2]={1,2,3,4};
- int x,y,det; 
- 
- for (i=0; i< 2; i++){
-    for (j=0; j<2; j++){
+double invers(double bilangan, double invers){
+
+    printf("Masukkan bilangan: ");
+    scanf("%lf", &bilangan);
+
+    invers = 1.0 / bilangan;
+
+    return bilangan, invers;
+}
+
+//  moduL cosinus
+double to_radians(double degrees) {
+    return degrees * 0.0174533;
+}
+
+double power(double base, int exponent) {
+    double result = 1.0;
+    for (int i = 1; i <= exponent; i++) {
+        result *= base;
     }
-    return c[i][j];
+    return result;
 }
-det=c[0][0]*c[1][1]-c[1][0]*c[0][1];
-int A2[2][2];
-A2[1][1]=c[0][0];
-A2[0][0]=c[1][1];
-A2[0][1]=c[0][1]*-1;
-A2[1][0]=c[1][0]*-1;
-A2[1][1]=c[0][0];
-A2[0][0]=c[1][1];
-A2[0][1]=c[0][1]*-1;
-A2[1][0]=c[1][0]*-1;
 
-
-for (i=0; i< 2; i++){
-    for (j=0; j<2; j++){
-     
+double factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
     }
-    
-}
-return A2[i][j]/det;
 }
 
-
-float cos (float a,float b)
-{ 
-	  float PI= 3.141;
-
-     return a, cos (a * PI) / 180;
-	 
-}               
-
-float secan (float a,float b){
-	float PI= 3.141;
-	 
-	 return a, 1/cos(a * PI) / 180;
+double cosine(double degrees) {
+    double radians = to_radians(degrees);
+    double cos = 1.0;
+    int sign = -1;
+    double term;
+    for (int i = 2; i <= 20; i += 2) {
+        term = power(radians, i) / factorial(i);
+        cos += sign * term;
+        sign = -sign;
+    }
+    return cos;
 }
-         
 
+// modul secan
+double to_radians1(double degrees) {
+    return degrees * 0.0174533;
+}
 
+double power1(double base, int exponent) {
+    double result = 1.0;
+    for (int i = 1; i <= exponent; i++) {
+        result *= base;
+    }
+    return result;
+}
 
+double factorial1(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial1(n - 1);
+    }
+}
 
+double secan(double degrees1) {
+    double radians = to_radians1(degrees1);
+    double cos = 1.0;
+    int sign = -1;
+    double term;
+    for (int i = 2; i <= 20; i += 2) {
+        term = power1(radians, i) / factorial1(i);
+        cos += sign * term;
+        sign = -sign;
+    }
+    return 1/cos;
+}
