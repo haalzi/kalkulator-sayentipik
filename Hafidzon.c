@@ -1,34 +1,58 @@
-#include "Rahaditya.h"
+#include "Hafidzon.h"
+#define pi 3.14159265358979323846
 
-float pembagian(float x, float y) {
-	return x / y;
+float bagi(double x, double y) {
+	return (float)x/y;
 }
 
-float eksponen (float x, int y) {
-	return pow(x, y);
+float exponen(double x,int y) {
+	double pow = 1;
+	int i;
+	for (i = 1; i <= y; i++) {
+		pow *= x;
+	}
+	return pow;
 }
 
-float faktorial (float x) {
-	int y;
+float fact(float n) {
+	int x;
 	float fact = 1;
-    for (y = 1; y <= x; y++) {
-    	fact = fact * y; 
+	for(x=1; x<=n; x++) {
+		fact=fact*x;
 	}
 	return fact;
 }
 
-float tangen (float x) {
-	x = (x * phi / 180.0);
-    x = tan (x);
-	return x;
+double tangen(double x) {
+	return (sinus(x)/cosinus(x));
+
 }
 
-float cotangen (float x) {
-	x = (x * phi / 180.0);
-    x = 1 / tan (x);
-	return x;
+double sinus(double x) {
+	x = (x * 3.14159265358979323846 / 180.0);
+    double term = x, sum = 0.0;
+    int i;
+    for (i = 1; i <= 10; i++) {
+        sum += term;
+        term *= (-1) * x * x / ((2 * i) * (2 * i + 1));
+    }
+    return sum;
 }
 
-float mutlak (float x) {
-	return abs (x);
+double cosinus(double x) {
+	x = (x * 3.14159265358979323846 / 180.0);
+	double sum = 1.0;
+	double term = 1.0;
+	int i, j;
+
+	for (i = 1; i <= 10; i++) {
+		term *= (-1.0 * x * x) / ((2 * i - 1) * (2 * i));
+		sum += term;
+	}
+
+	return sum;
+}
+
+float mutlak(float x) {
+	return abs(x);
 }
