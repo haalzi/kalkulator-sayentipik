@@ -720,7 +720,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi) {
     s.top = NULL;
 //	s.stackTop = -1;
 //	s.stackNumberTop = -1;
-    char postfix[100], inputOperasiSem[256], operatorOperasi, ch, phiInput[30] = "3.14159265358979323846";
+    char postfix[100], inputOperasiSem[256], operatorOperasi, ch, phiInput[30] = "3.14159265358979323846", eInput[10] = "2.71828";
 	int i = 0, j = 0, k = 0;
 	double angkaPertama, angkaKedua;
 	
@@ -787,7 +787,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi) {
 			}
 			else if ((inputOperasi[i] == 'p' || inputOperasi[i] == 'P') && (inputOperasi[i+1] == 'h' || inputOperasi[i+1] == 'H') && (inputOperasi[i+2] == 'i' || inputOperasi[i+2] == 'I')) {
 				if (isdigit(inputOperasi[i-1])) {
-					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas(inputOperasi[i-1])) {
+					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas('*')) {
 						ch = pop (&s);
 						postfix[j++] = ch;
 						postfix[j++] = ' ';
@@ -804,9 +804,37 @@ double kalkulasi(char * outputOperasi, char * inputOperasi) {
 //				postfix[j++] = ' ';
 				k = 0;
 //				i--;
+				if (isdigit(inputOperasi[i+1])) {
+					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas('*')) {
+						ch = pop (&s);
+						postfix[j++] = ch;
+					}
+					postfix[j++] = ' ';
+					push (&s, '*');
+				}
 			}
 			else if ((inputOperasi[i-1] != 's' || inputOperasi[i-1] != 'S') && (inputOperasi[i] == 'e' || inputOperasi[i] == 'E') && (inputOperasi[i+1] != 'c' || inputOperasi[i+1] != 'C')) {
-				pushAngka(&s, e);
+				if (isdigit(inputOperasi[i-1])) {
+					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas('*')) {
+						ch = pop (&s);
+						postfix[j++] = ch;
+						postfix[j++] = ' ';
+					}
+					push (&s, '*');
+				}
+				while (eInput[k]) {
+	            	postfix[j++] = eInput[k];
+					k++;
+				}
+				k = 0;
+				if (isdigit(inputOperasi[i+1])) {
+					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas('*')) {
+						ch = pop (&s);
+						postfix[j++] = ch;
+					}
+					postfix[j++] = ' ';
+					push (&s, '*');
+				}
 			}
 			else if ((inputOperasi[i] == 'a' || inputOperasi[i] == 'A') && (inputOperasi[i+1] == 'b' || inputOperasi[i+1] == 'B') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S')) {
 				i = i + 2;
