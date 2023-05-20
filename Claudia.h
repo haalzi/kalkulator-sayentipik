@@ -1,11 +1,11 @@
 
-float pengurangan (float x, float y);
+double pengurangan (double x, double y);
 
-float cosinus (float x);
+double cosinus (double x);
 
-float secan (float x);
+double secan (double x);
 
-float ln (float x);
+double ln (double x);
 
 int matriksPenjumlahan (int baris, int kolom);
 

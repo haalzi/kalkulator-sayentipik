@@ -1,34 +1,40 @@
 #include "Hafidzon.h"
-#define pi 3.14159265358979323846
+#include "Rahaditya.h"
 
-float bagi(double x, double y) {
-	return (float)x/y;
+double pembagian(double x, double y) {
+	return x / y;
 }
 
-float exponen(double x,int y) {
-	double pow = 1;
-	int i;
-	for (i = 1; i <= y; i++) {
-		pow *= x;
-	}
-	return pow;
+double eksponen (double x, int y) {
+	return pow(x, y);
 }
 
-float fact(float n) {
-	int x;
-	float fact = 1;
-	for(x=1; x<=n; x++) {
-		fact=fact*x;
+double faktorial (double x) {
+	int y;
+	double fact = 1;
+    for (y = 1; y <= x; y++) {
+    	fact = fact * y; 
 	}
 	return fact;
 }
 
-double tangen(double x) {
-	return (sinus(x)/cosinus(x));
-
+double tangen (double x) {
+	x = (x * phi / 180.0);
+    x = tan (x);
+	return x;
 }
 
-double sinus(double x) {
+double cotangen (double x) {
+	x = (x * phi / 180.0);
+    x = 1 / tan (x);
+	return x;
+}
+
+double mutlak (double x) {
+	return (x < 0) ? -x : x;
+}
+
+double sinusS(double x) {
 	x = (x * 3.14159265358979323846 / 180.0);
     double term = x, sum = 0.0;
     int i;
@@ -37,22 +43,4 @@ double sinus(double x) {
         term *= (-1) * x * x / ((2 * i) * (2 * i + 1));
     }
     return sum;
-}
-
-double cosinus(double x) {
-	x = (x * 3.14159265358979323846 / 180.0);
-	double sum = 1.0;
-	double term = 1.0;
-	int i, j;
-
-	for (i = 1; i <= 10; i++) {
-		term *= (-1.0 * x * x) / ((2 * i - 1) * (2 * i));
-		sum += term;
-	}
-
-	return sum;
-}
-
-float mutlak(float x) {
-	return abs(x);
 }

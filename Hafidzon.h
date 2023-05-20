@@ -1,12 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#define pi 3.14159265358979323846
 
-float bagi(double x, double y);
-float exponen(double x, int y);
-float fact(float n);
-double tangen(double x);
-double sinus(double x);
-double cosinus(double x);
-float mutlak(float x);
+double pembagian (double x, double y);
+
+double eksponen (double x, int y);
+
+double faktorial (double x);
+
+double tangen (double x);
+
+double cotangen (double x);
+
+double mutlak (double x);
+
+double sinusS (double x);

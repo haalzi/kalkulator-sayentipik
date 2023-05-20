@@ -1,36 +1,54 @@
+#include "Ryan.h"
 #include "Rahaditya.h"
 
-float pertambahan (float x, float y) {
+double pertambahan (double x, double y) {
 	
 	return x + y;
 }
 
-float perpangkatan (float x, float y) {
-	float hasil;							
+//double perpangkatan(double base, int exponent) {
+//    double result = 1.0;
+//    int i;
+//    for (i = 1; i <= exponent; i++) {
+//        result *= base;
+//    }
+//    return result;
+//}
+//double nthRoot(double num, int n) {
+//    double x = num;
+//    double y = 0.000001; // epsilon
+//    while ((perpangkatan(x, n) - num) > y) {
+//        x = (1.0/n)*((n-1)*x + num/perpangkatan(x, n-1));
+//    }
+//    return x;
+//}
+
+
+double perpangkatan (double x, double y) {
+	double hasil;							
 	hasil = pow (x, y);     	
 	return hasil;
 }
 
-float akar (float x) {
-	float hasil;
-	hasil = sqrt (x);				
+double akar (double x, double y) {
+	double hasil;
+	hasil = pow(x, 1.0/y);			
 	return hasil;
 }
-
 int modulus (int x, int y){
 	int hasil;
 	hasil = x % y;
 	return hasil;
 }
 
-float persen (float x) {
-	float hasil;
+double persen (double x) {
+	double hasil;
 	hasil = x / 100;
 	return hasil;
 }
 
-float kombinasi (float x, float y) {
-	float hasil, i, x1, x2, x3;
+double kombinasi (double x, double y) {
+	double hasil, i, x1, x2, x3;
 	x1 = 1;
 	x2 = 1;
 	x3 = 1;
@@ -52,52 +70,52 @@ float kombinasi (float x, float y) {
 	return hasil;
 }
 
-float convertCelsiuskeFahrenheit(float celsius) {
+double convertCelsiuskeFahrenheit(double celsius) {
     return (celsius * 1.8) + 32;
 }
 
-float convertFahrenheitkeCelsius(float fahrenheit) {
+double convertFahrenheitkeCelsius(double fahrenheit) {
     return (fahrenheit - 32) / 1.8;
 }
 
-float convertCelsiuskeReamur(float celsius) {
+double convertCelsiuskeReamur(double celsius) {
     return celsius * 0.8;
 }
 
-float convertReamurkeCelsius(float reamur) {
+double convertReamurkeCelsius(double reamur) {
     return reamur / 0.8;
 }
 
-float convertCelsiuskeKelvin(float celsius) {
+double convertCelsiuskeKelvin(double celsius) {
     return celsius + 273.15;
 }
 
-float convertKelvinkeCelsius(float kelvin) {
+double convertKelvinkeCelsius(double kelvin) {
     return kelvin - 273.15;
 }
 
-float convertFahrenheitkeKelvin(float fahrenheit) {
+double convertFahrenheitkeKelvin(double fahrenheit) {
     return (fahrenheit + 459.67) / 1.8;
 }
 
-float convertKelvinkeFahrenheit(float kelvin) {
+double convertKelvinkeFahrenheit(double kelvin) {
     return (kelvin * 1.8) - 459.67;
 }
 
-float convertReamurkeKelvin(float reamur) {
+double convertReamurkeKelvin(double reamur) {
     return (reamur / 0.8) + 273.15;
 }
 
-float convertKelvinkeReamur(float kelvin) {
+double convertKelvinkeReamur(double kelvin) {
     return (kelvin - 273.15) * 0.8;
 }
 
 // convert panjang
-float ConvertPanjang(float Panjang, float fromFactor, float toFactor) {
+double ConvertPanjang(double Panjang, double fromFactor, double toFactor) {
     return Panjang * fromFactor / toFactor;
 }
 
-void printMatrix(float **matrix, int rows, int columns) {
+void printMatrix(double **matrix, int rows, int columns) {
     int i, j;
     for (i = 0; i < rows; i++) {
 		tampilanStruktur (2);
@@ -109,12 +127,12 @@ void printMatrix(float **matrix, int rows, int columns) {
 }
 
 // Function to transpose a matrix
-float **transposeMatrix(float **matrix, int rows, int columns) {
+double **transposeMatrix(double **matrix, int rows, int columns) {
 	int i, j;
     // Allocate memory for the transpose matrix
-    float **transpose = (float **)malloc(columns * sizeof(float *));
+    double **transpose = (double **)malloc(columns * sizeof(double *));
     for (i = 0; i < columns; i++) {
-        transpose[i] = (float *)malloc(rows * sizeof(float));
+        transpose[i] = (double *)malloc(rows * sizeof(double));
     }
 
     // Transpose the matrix

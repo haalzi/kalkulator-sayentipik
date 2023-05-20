@@ -1,4 +1,8 @@
 #include "Rahaditya.h"
+#include "Canandra.h"
+#include "Claudia.h"
+#include "Hafidzon.h"
+#include "Ryan.h"
 
 void tampilanStruktur (int pilihStruktur) {
 	switch (pilihStruktur) {
@@ -41,7 +45,7 @@ void tampilanLogo () {
 	tampilanStruktur (1);
 }
 
-void tampilanKalkulator (float hasil, char * outputOperasi) {
+void tampilanKalkulator (double hasil, char * outputOperasi) {
 	char temp[256], * p;
 	gcvt(hasil, 256, temp);
 	if (fmod(hasil, 1) == 0) {
@@ -59,29 +63,9 @@ void tampilanKalkulator (float hasil, char * outputOperasi) {
 	tampilanStruktur (3);
 	printf ("|    |                                                  |    |\n");
 	tampilanStruktur (3);
-	printf ("|    | ");
-	if (strlen(outputOperasi) <= 0) {
-		printf ("%s\t\t\t\t\t\t   =\t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 8) {
-		printf (" %s\t\t\t\t\t   =\t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 16) {
-		printf (" %s\t\t\t\t   = \t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 24) {
-		printf (" %s\t\t\t    =\t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 32) {
-		printf (" %s\t\t    =\t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 40) {
-		printf (" %s\t    =\t", outputOperasi);
-	}
-	else if (strlen(outputOperasi) < 48) {
-		printf (" %s    =\t", outputOperasi);
-	}
-	printf ("|    |\n");
+	printf ("|    |   %s", outputOperasi);
+	gotoxy(123, 15);
+	printf ("=    |    |\n");
 	tampilanStruktur (3);
 	printf ("|    | ");
 	if (strlen(temp) <= 3) {
@@ -159,7 +143,7 @@ void tampilanKalkulator (float hasil, char * outputOperasi) {
 
 void tampilanDLL (char inputLayoutDLL) {
 	int i, j, dariSatuan, keSatuan, baris, kolom, rows, columns, matrik1[10][10], matrik2[10][10], jumlah[10][10];
-	float x, y, z, hasil, Panjang, ConvertedPanjang, temperature, result;
+	double x, y, z, hasil, Panjang, ConvertedPanjang, temperature, result;
 	char pilihan;
 		    
 	switch (inputLayoutDLL) {
@@ -253,9 +237,9 @@ void tampilanDLL (char inputLayoutDLL) {
 			tampilanStruktur (4);
 			printf ("\n");
 		    // Allocate memory for the matrix
-		    float **matrix = (float **)malloc(baris * sizeof(float *));
+		    double **matrix = (double **)malloc(baris * sizeof(double *));
 		    for (i = 0; i < baris; i++) {
-		        matrix[i] = (float *)malloc(kolom * sizeof(float));
+		        matrix[i] = (double *)malloc(kolom * sizeof(double));
 		    }
 		
 		    // Taking input from the user
@@ -276,7 +260,7 @@ void tampilanDLL (char inputLayoutDLL) {
 		    printMatrix (matrix, baris, kolom);
 			
 			 // Transpose the matrix
-		    float **transpose = transposeMatrix(matrix, baris, kolom);
+		    double **transpose = transposeMatrix(matrix, baris, kolom);
 		    printf ("\n");
 			tampilanStruktur (2);
 		    printf("Transpose Matriks :\n");
@@ -519,7 +503,7 @@ char inputKarakter (char * karakter) {
 	return * karakter;
 }
 
-float inputAngka (float * angka) {
+double inputAngka (double * angka) {
 	tampilanStruktur (4);
 	tampilanStruktur (0);
 	printf ("Input : ");
@@ -529,32 +513,32 @@ float inputAngka (float * angka) {
 	return * angka;
 }
 
-float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi) {
+double operasi (double angkaPertama, double angkaKedua, int operatorKalkulasi) {
     switch (operatorKalkulasi) {
     	case 'a':
-    		return sinus (angkaPertama);
+    		return sinusS (angkaKedua);
     	case 'b':
-    		return cosinus (angkaPertama);
+    		return cosinus (angkaKedua);
     	case 'c':
-    		return tangen (angkaPertama);
+    		return tangen (angkaKedua);
     	case 'j':
-    		return cosecan (angkaPertama);
+    		return cosecan (angkaKedua);
     	case 'e':
-    		return secan (angkaPertama);
+    		return secan (angkaKedua);
     	case 'f':
-    		return cotangen (angkaPertama);
+    		return cotangen (angkaKedua);
     	case 'g':
-    		return logbase10 (angkaPertama);
+    		return logbase10 (angkaKedua);
     	case 'h':
-    		return ln (angkaPertama);
-    	case 'i':
-    		return akar (angkaPertama);
+    		return ln (angkaKedua);
+    	case 'v':
+    		return akar (angkaKedua, angkaPertama);
     	case 'k':
-    		return mutlak (angkaPertama);
+    		return mutlak (angkaKedua);
     	case 'd':
     		return modulus (angkaPertama, angkaKedua);
     	case '!':
-    		return faktorial (angkaPertama);
+    		return faktorial (angkaKedua);
     	case 'E':
     		angkaKedua = eksponen (10, angkaKedua);
     		return angkaPertama * angkaKedua;
@@ -565,7 +549,7 @@ float operasi (float angkaPertama, float angkaKedua, char operatorKalkulasi) {
         case '/':
             return pembagian (angkaPertama, angkaKedua);
         case '%':
-            return persen (angkaPertama);
+            return persen (angkaKedua);
         case '+':
             return pertambahan (angkaPertama, angkaKedua);
         case '-':
@@ -588,6 +572,18 @@ int prioritas (char operatorPrioritas) {
         case 'E':
         case '^':
         case 'd':
+        case 'v':
+        case '!':
+    	case '%':
+        case 'a':
+        case 'b':
+        case 'c':
+        case 'j':
+        case 'e':
+    	case 'f':
+        case 'g':
+        case 'h':
+        case 'k':
             return 3;
         default:
         	return -1;
@@ -595,31 +591,76 @@ int prioritas (char operatorPrioritas) {
     }
 }
 
-void push (STACK * ss, char x) {
-	ss->stack[++ss->stackTop] = x;
+
+
+void push(Stack* ss, char x) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = x;
+    newNode->next = ss->top;
+    ss->top = newNode;
 }
 
-void pushAngka (STACK * ss, float x) {
-	ss->stackNumber[++ss->stackNumberTop] = x;
+void pushAngka(Stack* ss, double x) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->dataNumber = x;
+    newNode->next = ss->top;
+    ss->top = newNode;
 }
 
-char pop (STACK *ss) {
-	if (isEmpty(ss)) {
-		return -1;
-	}
-	else {
-		return ss->stack[ss->stackTop--];
-	}
+char pop(Stack* ss) {
+    if (isEmpty(ss)) {
+        printf("Stack underflow!\n");
+        return '\0'; // or any other suitable error value
+    }
+    Node* temp = ss->top;
+    char data = temp->data;
+    ss->top = temp->next;
+    free(temp);
+    return data;
 }
 
-float popAngka (STACK * ss) {
-	if (isEmpty(ss)) {
-		return -1;
-	}
-	else {
-		return ss->stackNumber[ss->stackNumberTop--];
-	}
+double popAngka(Stack* ss) {
+    if (isEmpty(ss)) {
+        printf("Stack underflow!\n");
+        return 0.0; // or any other suitable error value
+    }
+    Node* temp = ss->top;
+    double data = temp->dataNumber;
+    ss->top = temp->next;
+    free(temp);
+    return data;
 }
+
+int isEmpty(Stack* ss) {
+    return (ss->top == NULL);
+}
+
+
+
+//void push (STACK * ss, char x) {
+//	ss->stack[++ss->stackTop] = x;
+//}
+//
+//void pushAngka (STACK * ss, double x) {
+//	ss->stackNumber[++ss->stackNumberTop] = x;
+//}
+//
+//char pop (STACK *ss) {
+//	return ss->stack[ss->stackTop--];
+//}
+//
+//double popAngka (STACK * ss) {
+//	return ss->stackNumber[ss->stackNumberTop--];
+//}
+//
+//int isEmpty (STACK * ss) {
+//	if(ss->stackTop == -1) {
+//        return 1;
+//    }
+//	else {
+//        return 0;
+//    }
+//}
 
 char * perbaikiString (char * string) {
     int count = 0, i = 0;
@@ -634,40 +675,39 @@ char * perbaikiString (char * string) {
     return string;
 }
 
-char * negatifBilangan (char * string) {
-	int i = 0, j = 1;
+char *negatifBilangan(char *string) {
+    int i = 0, j;
+    char *stringSem;
     while (string[i] != '\0') {
-		if ((!isdigit(string[i-1]) && string[i-1] != ')') && string[i] == '-' && isdigit(string[i+1]) && string[i-1] != 'e' && (string[i-3] != 'p' && string[i-2] != 'h' && string[i-1] != 'i')) {
-			char * stringSem, nol[] = "0", minus[] = "-", bukaKurung[] = "(", tutupKurung[] = ")", charSem;
-			strncpy(stringSem, string, i);
-			stringSem[i] = '\0';
-			strcat(stringSem, bukaKurung);
-			strcat(stringSem, nol);
-			strcat(stringSem, minus);
-			while (string[i] == '-' && isdigit(string[i+j])) {
-				strncat(stringSem, &string[i+j], 1);
-				j++;
-			}
-			strcat(stringSem, tutupKurung);
-			strcat(stringSem, string + i+j);
-			strcpy (string, stringSem);
-		}
-    	i++;
-	}
-	return string;
-}
-
-int isEmpty (STACK * ss) {
-	if(ss->stackTop == -1) {
-        return 1;
+        if ((!isdigit(string[i-1]) && string[i-1] != ')') && string[i] == '-' && isdigit(string[i+1]) && string[i-1] != 'e' && (string[i-3] != 'p' && string[i-2] != 'h' && string[i-1] != 'i')) {
+            char minus[] = "-", bukaKurung[] = "(", tutupKurung[] = ")";
+            stringSem = malloc(strlen(string) + 4);
+            if (stringSem == NULL) {
+                return NULL; // Error: Failed to allocate memory
+            }
+            strncpy(stringSem, string, i);
+            stringSem[i] = '\0';
+            strcat(stringSem, bukaKurung);
+            strcat(stringSem, "0");
+            strcat(stringSem, minus);
+            j = 1;
+            while (isdigit(string[i+j])) {
+                strncat(stringSem, &string[i+j], 1);
+                j++;
+            }
+            strcat(stringSem, tutupKurung);
+            strcat(stringSem, &string[i+j]);
+            strcpy(string, stringSem);
+            free(stringSem);
+            i += 3;
+        }
+        i++;
     }
-	else{
-        return 0;
-    }
+    return string;
 }
 
 int isSaintifik (char operatorSaintifik) {
-    if(operatorSaintifik == 'a' || operatorSaintifik == 'b' ||operatorSaintifik == 's' || operatorSaintifik == 'p' || operatorSaintifik == 'h' ||operatorSaintifik == 'c' || operatorSaintifik == 'o' || operatorSaintifik == 's' || operatorSaintifik == 't' || operatorSaintifik == 'e' || operatorSaintifik == 'n' || operatorSaintifik == 'i' || operatorSaintifik == 'l') {
+    if(operatorSaintifik == 'a' || operatorSaintifik == 'b' || operatorSaintifik == 's' || operatorSaintifik == 'p' || operatorSaintifik == 'h' ||operatorSaintifik == 'c' || operatorSaintifik == 'o' || operatorSaintifik == 's' || operatorSaintifik == 't' || operatorSaintifik == 'e' || operatorSaintifik == 'n' || operatorSaintifik == 'i' || operatorSaintifik == 'l') {
     	return 1;
 	}
     else {
@@ -675,150 +715,276 @@ int isSaintifik (char operatorSaintifik) {
 	}
 }
 
-int Saintifik (STACK * ss, char * inputOperasi, int i) {
-	int j = 0;
-	float angkaPertama, angkaKedua;
-	char inputOperasiSem[256];
-	if (inputOperasi[i] == 's' && inputOperasi[i+1] == 'i' && inputOperasi[i+2] == 'n') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'a');
-	}
-	if (inputOperasi[i] == 'c' && inputOperasi[i+1] == 'o' && inputOperasi[i+2] == 's' && inputOperasi[i+3] != 'e') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'b');
-	}
-	else if (inputOperasi[i] == 't' && inputOperasi[i+1] == 'a' && inputOperasi[i+2] == 'n') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'c');
-	}
-	else if (inputOperasi[i] == 'c' && inputOperasi[i+1] == 'o' && inputOperasi[i+2] == 's' && inputOperasi[i+3] == 'e' && inputOperasi[i+4] == 'c') {
-		i = i + 5;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'j');
-	}
-	else if (inputOperasi[i] != 'o' && inputOperasi[i] == 's' && inputOperasi[i+1] == 'e' && inputOperasi[i+2] == 'c') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'e');
-	}
-	else if (inputOperasi[i] == 'c' && inputOperasi[i+1] == 'o' && inputOperasi[i+2] == 't') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'f');
-	}
-	else if (inputOperasi[i] == 'l' && inputOperasi[i+1] == 'o' && inputOperasi[i+2] == 'g') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'g');
-	}
-	else if (inputOperasi[i] == 'l' && inputOperasi[i+1] == 'n') {
-		i = i + 2;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'h');
-	}
-	else if (inputOperasi[i] == 's' && inputOperasi[i+1] == 'q') {
-		i = i + 2;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'i');
-	}
-	else if (inputOperasi[i] == 'p' && inputOperasi[i+1] == 'h' && inputOperasi[i+2] == 'i') {
-		i = i + 2;
-		pushAngka(&*ss, phi);
-	}
-	else if (inputOperasi[i-1] != 's' && inputOperasi[i] == 'e' && inputOperasi[i+1] != 'c') {
-		pushAngka(&*ss, e);
-	}
-	else if (inputOperasi[i] == 'a' && inputOperasi[i+1] == 'b' && inputOperasi[i+2] == 's') {
-		i = i + 3;
-		i = kalkulasiSaintifik (&ss, inputOperasi, i, 'k');
-	}
-	return i;
-}
-
-int kalkulasiSaintifik (STACK ** ss, char * inputOperasi, int i, char tipeSaintifik) {
-    int j = 0;
-	float angkaPertama, angkaKedua;
-	char inputOperasiSem[256];
-	while((isdigit(inputOperasi[i]) || (inputOperasi[i] == '(' || (inputOperasi[i+2] == '-' && inputOperasi[i+1] == '0' && inputOperasi[i] == '(')) || inputOperasi[i] == '.') && (strlen(inputOperasi))) {
-        if (inputOperasi[i+2] == '-' && inputOperasi[i+1] == '0' && inputOperasi[i] == '(') {
-        	i+=2;
-        	inputOperasiSem[j] = '-';
-        	j++;
-		}
-		else if (isdigit(inputOperasi[i]) || inputOperasi[i] == '.') {
-			inputOperasiSem[j] = inputOperasi[i];
-        	j++;
-		}
-        i++;
-    }
-	inputOperasiSem[j] = '\0';
-	if (!strchr (inputOperasiSem, '-')) {
-		i--;
-	}
-	angkaPertama = strtod(inputOperasiSem, NULL);
-	pushAngka(&**ss, operasi (angkaPertama, angkaKedua, tipeSaintifik));
+double kalkulasi(char * outputOperasi, char * inputOperasi) {
+	Stack s;
+    s.top = NULL;
+//	s.stackTop = -1;
+//	s.stackNumberTop = -1;
+    char postfix[100], inputOperasiSem[256], operatorOperasi, ch, phiInput[30] = "3.14159265358979323846";
+	int i = 0, j = 0, k = 0;
+	double angkaPertama, angkaKedua;
 	
-	return i;
-}
-
-float kalkulasi(char * outputOperasi) {
-	STACK s;
-	s.stackTop = -1;
-	s.stackNumberTop = -1;
-	char inputOperasi[256], inputOperasiSem[256];
-	int i = 0, j = 0;
-	float angkaPertama, angkaKedua;
-	
-	tampilanStruktur (1);
-	tampilanStruktur (0);
-	printf("Input : ");
-    scanf("%[^\n]s", inputOperasi);
+	printf ("\nraw input: %s\n", inputOperasi); getch ();
     strcpy (inputOperasi, perbaikiString (inputOperasi));
 	strcpy (outputOperasi, inputOperasi);
     strcpy (inputOperasi, negatifBilangan (inputOperasi));
 	
+	printf ("\nmodified input: %s\n", inputOperasi); getch ();
+	
     while (inputOperasi[i]) {
-    	if (isdigit(inputOperasi[i])) {
+    	if (inputOperasi[i] == ' ') continue;
+//    	else if (!isdigit(inputOperasi[i]) && !isSaintifik(inputOperasi[i]) && inputOperasi[i] != '.' && inputOperasi[i] != '+') return;
+    	else if (isdigit(inputOperasi[i])) {
 			while (isdigit(inputOperasi[i]) || inputOperasi[i] == '.') {
-            	inputOperasiSem[j++] = inputOperasi[i++];
+            	postfix[j++] = inputOperasi[i++];
 			}
-			inputOperasiSem[j] = '\0';
-            pushAngka (&s, strtod(inputOperasiSem, NULL));
-			j = 0;
+			postfix[j++] = ' ';
 			i--;
 		}
 		else if (inputOperasi[i] == '(') {
 			push (&s, inputOperasi[i]);
 		}
 		else if (inputOperasi[i] == ')') {
-			while (s.stack[s.stackTop] != '(') {
-                angkaKedua = popAngka (&s);
-                angkaPertama = popAngka (&s);
-                pushAngka (&s, operasi(angkaPertama, angkaKedua, pop (&s)));
+			while (s.top->data != '(' && !isEmpty(&s)) {
+					ch = pop (&s);
+					postfix[j++] = ch;
+					postfix[j++] = ' ';
 			}
-            s.stackTop--;
-		}
-		else if (isSaintifik(inputOperasi[i])) {
-			i = Saintifik (&s, inputOperasi, i);
-		}
-		else if (inputOperasi[i] == '!' || inputOperasi[i] == '%') {
-        	angkaPertama = popAngka (&s);
-        	
-            pushAngka (&s, operasi(angkaPertama, angkaKedua, pop (&s)));
-            push (&s, inputOperasi[i]);
+            pop (&s);
 		}
 		else {
-			if (inputOperasi[i] == 'm') {
+			if ((inputOperasi[i] == 's' || inputOperasi[i] == 'S') && (inputOperasi[i+1] == 'i'|| inputOperasi[i+1] == 'I') && (inputOperasi[i+2] == 'n' || inputOperasi[i+2] == 'N')) {
 				i = i + 2;
+				push (&s, 'a');
 			}
-            while (!isEmpty(&s) && prioritas(s.stack[s.stackTop]) >= prioritas(inputOperasi[i])) {
-                angkaKedua = popAngka (&s);
-                angkaPertama = popAngka (&s);
-                pushAngka (&s, operasi(angkaPertama, angkaKedua, pop (&s)));
-            }
-            push (&s, inputOperasi[i]);
+			else if ((inputOperasi[i] == 'c' || inputOperasi[i] == 'C') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S') && (inputOperasi[i+3] != 'e' && inputOperasi[i+3] != 'E')) {
+				i = i + 2;
+				push (&s, 'b');
+			}
+			else if ((inputOperasi[i] == 't' || inputOperasi[i] == 'T') && (inputOperasi[i+1] == 'a' || inputOperasi[i+1] == 'A') && (inputOperasi[i+2] == 'n' || inputOperasi[i+2] == 'N')) {
+				i = i + 2;
+				push (&s, 'c');
+			}
+			else if ((inputOperasi[i] == 'c' || inputOperasi[i] == 'C') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S') && (inputOperasi[i+3] == 'e' || inputOperasi[i+3] == 'E') && (inputOperasi[i+4] == 'c' || inputOperasi[i+4] == 'C')) {
+				i = i + 4;
+				push (&s, 'j');
+			}
+			else if ((inputOperasi[i] != 'o' || inputOperasi[i] != 'O') && (inputOperasi[i] == 's' || inputOperasi[i] == 'S') && (inputOperasi[i+1] == 'e' || inputOperasi[i+1] == 'E') && (inputOperasi[i+2] == 'c' || inputOperasi[i+2] == 'C')) {
+				i = i + 2;
+				push (&s, 'e');
+			}
+			else if ((inputOperasi[i] == 'c' || inputOperasi[i] == 'C') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 't') || inputOperasi[i+2] == 'T') {
+				i = i + 2;
+				push (&s, 'f');
+			}
+			else if ((inputOperasi[i] == 'l' || inputOperasi[i] == 'L') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 'g' || inputOperasi[i+2] == 'G')) {
+				i = i + 2;
+				push (&s, 'g');
+			}
+			else if ((inputOperasi[i] == 'l' || inputOperasi[i] == 'L') && (inputOperasi[i+1] == 'n' || inputOperasi[i+1] == 'N')) {
+				i = i + 1;
+				push (&s, 'h');
+			}
+			else if ((inputOperasi[i] == 'p' || inputOperasi[i] == 'P') && (inputOperasi[i+1] == 'h' || inputOperasi[i+1] == 'H') && (inputOperasi[i+2] == 'i' || inputOperasi[i+2] == 'I')) {
+				if (isdigit(inputOperasi[i-1])) {
+					if (!isEmpty(&s) && prioritas(s.top->data) >= prioritas(inputOperasi[i-1])) {
+						ch = pop (&s);
+						postfix[j++] = ch;
+						postfix[j++] = ' ';
+					}
+					push (&s, '*');
+				}
+				i = i + 2;
+//				while (isdigit(phiInput[k]) || phiInput[k] == '.') {
+				while (phiInput[k]) {
+//				while (k < 18) {
+	            	postfix[j++] = phiInput[k];
+					k++;
+				}
+//				postfix[j++] = ' ';
+				k = 0;
+//				i--;
+			}
+			else if ((inputOperasi[i-1] != 's' || inputOperasi[i-1] != 'S') && (inputOperasi[i] == 'e' || inputOperasi[i] == 'E') && (inputOperasi[i+1] != 'c' || inputOperasi[i+1] != 'C')) {
+				pushAngka(&s, e);
+			}
+			else if ((inputOperasi[i] == 'a' || inputOperasi[i] == 'A') && (inputOperasi[i+1] == 'b' || inputOperasi[i+1] == 'B') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S')) {
+				i = i + 2;
+				push (&s, 'k');
+			}
+			else if ((inputOperasi[i] == 'm' || inputOperasi[i] == 'M') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 'd' || inputOperasi[i+2] == 'D')) {
+				i = i + 2;
+				push (&s, 'd');
+			}
+			else {
+	            while (!isEmpty(&s) && prioritas(s.top->data) >= prioritas(inputOperasi[i])) {
+					ch = pop (&s);
+					postfix[j++] = ch;
+					postfix[j++] = ' ';
+	            }
+	            push (&s, inputOperasi[i]);
+        	}
 		}
 		i++;
 	}
-	
 	while (!isEmpty(&s)) {
-	    angkaKedua = popAngka (&s);
-	    angkaPertama = popAngka (&s);
-        pushAngka (&s, operasi(angkaPertama, angkaKedua, pop (&s)));
+		ch = pop (&s);
+		postfix[j++] = ch;
+		postfix[j++] = ' ';
 	}
-	return s.stackNumber[0];
+	postfix[j--] = '\0';
+	
+	printf ("\nafter shunting yard, before tree: %s\n", postfix); getch();
+	
+	addr treeRoot = createTreeFromPostfix (postfix);
+	double result = calculateTreeExpression(treeRoot);
+	return result;
+}
+
+addr createNode(double opValue, bool isOperand) {
+    addr _newNode = nil;
+    AlokasiMemoriNode(&_newNode);
+
+    if (_newNode != nil) {
+        opVal(_newNode) = opValue;
+        isOperand(_newNode) = isOperand;
+        left(_newNode) = nil; // Set left pointer to nil
+        right(_newNode) = nil; // Set right pointer to nil
+    }
+
+    return _newNode;
+}
+
+void AlokasiMemoriNode (addr* _newNode) {
+    *(_newNode) = (addr)malloc(sizeof(NodeBinTree));
+}
+
+addr insertNodeToTree (double opValue, bool isOperand, addr root) {
+    addr newNode;
+
+    // jika root tsb. NULL, buat sebuah node dan kembalikan alamat node tsb. berada
+    if (root == nil) {
+        return createNode(opValue, isOperand);
+    }
+
+    // jika pointer right bernilai NULL ataupun right bukan digit/operand
+    // kunjungi daerah sub-tree kanan untuk diisi node baru
+    if (right(root) == nil || !isOperand(right(root))) {
+        newNode = insertNodeToTree(opValue, isOperand, right(root));
+        if (newNode != nil) {
+            // hubungkan node baru dengan parentnya
+            right(root) = newNode;
+            return root;
+        }
+    }
+
+    // jika pointer left bernilai NULL ataupun left bukan digit/operand, 
+    // DAN nilai node root bukan karakter '-' ataupun '#'
+    // kunjungi daerah sub-tree kiri untuk diisi node baru
+    
+    if (opVal(root) != '!' && opVal(root) != '%' && opVal(root) != 'a' && opVal(root) != 'b' && opVal(root) != 'c' && opVal(root) != 'j' && opVal(root) != 'e' && opVal(root) != 'f' && opVal(root) != 'g' && opVal(root) != 'h' && opVal(root) != 'k' && (left(root) == nil || !isOperand(left(root)))) {
+        newNode = insertNodeToTree(opValue, isOperand, left(root));
+        if (newNode != nil) {
+            // hubungkan node baru dengan parentnya
+            left(root) = newNode;
+            return root;
+        }
+    }
+
+    // jika tidak memenuhi 3 kriteria di atas, kembalikan nilai NULL
+    return nil;
+}
+
+void printTree (addr root) {
+    if (root != nil) {
+        if (isOperand(root)) {
+            // use fmod to count the remainders of floating number (instead of using % operator)
+            if (fmod(opVal(root), 1.00) != 0.00) {
+                printf("%.2f", opVal(root));
+            } else {
+                // print only number without leading zero if it's a whole number
+                printf("%.0f", opVal(root));
+            }
+        } else {
+            // tampilkan langsung karakter operator
+            printf("%c", (int)opVal(root));
+        }
+
+        printf(" ");
+        printTree(left(root));
+        printTree(right(root));
+    }
+}
+
+addr createTreeFromPostfix (char* expression) {
+    addr tree = nil;
+    int i, index;
+    char number[40];
+    double temp;
+
+    // read every character in expression array one by one from the end to the very first char
+    for (i = strlen(expression) - 1; i >= 0; i--) {
+        if (expression[i] == ' ') {
+      		continue;
+   		}
+
+        // masukkan elemen operand/angka ke dalam tree
+        if (isdigit(expression[i]) || expression[i] == '.') {
+            index = 0;  // indeks pada array of digit character saja
+            do {
+                // cari digit angka sampai ditemukan karakter non-angka
+                number[index++] = expression[i--];
+            } while ((i >= 0 && isdigit(expression[i])) || expression[i] == '.');
+            number [index] = '\0'; // beri pembatas terminator karena masih dalam bentuk array
+
+            // ubah string number yang dibalik ke dalam bilangan bertipe double
+            temp = strtod(strrev(number), NULL); 
+            // masukkan elemen digit pada array temp ke dalam tree (karena bisa jadi digit lebih dari satu)
+            tree = insertNodeToTree(temp, true, tree);
+        }
+		
+		
+        // langsung masukkan elemen operator ke dalam tree
+        else {
+            tree = insertNodeToTree(expression[i], false, tree);
+        }
+        
+    }
+    printf ("\nTree: ");
+    printTree (tree); getch ();
+    return tree;
+}
+
+double calculateTreeExpression(addr root) {
+	double rightNumber, leftNumber;
+	
+//	printf ("\noperator (sebelum pengecekan isOperand): %c\n", (int)(opVal(root))); getch ();
+    // Ditemui element node merupakan digit operand
+	if (isOperand(root)) {
+    	return opVal(root);
+	}
+	
+	printf ("\noperator: %c\n", (int)(opVal(root))); getch ();
+	// Menelusuri sub-tree kanan secara rekursif hingga ditemui operand
+    
+	if (opVal(root) == '!' || opVal(root) == '%' || opVal(root) == 'a' || opVal(root) == 'b' || opVal(root) == 'c' || opVal(root) == 'j' || opVal(root) == 'e' || opVal(root) == 'f' || opVal(root) == 'g' || opVal(root) == 'h' || opVal(root) == 'k') {
+		
+	    if (right(root) != NULL) {
+			printf ("\nRight\n"); getch ();
+			rightNumber = calculateTreeExpression(right(root));
+	    	
+		}
+		if (left(root) != NULL) {
+			printf ("\nLeft\n"); getch ();
+    		leftNumber = calculateTreeExpression(left(root));
+		}
+	}
+	else {
+		rightNumber = calculateTreeExpression(right(root));
+    	leftNumber = calculateTreeExpression(left(root));
+	}	
+	
+	printf ("\noperand :%g %g\n", leftNumber, rightNumber); getch();
+	
+    return operasi (leftNumber, rightNumber, (int)(opVal(root)));
 }

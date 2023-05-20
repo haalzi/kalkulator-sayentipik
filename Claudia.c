@@ -1,19 +1,20 @@
+#include "Claudia.h"
 #include "Rahaditya.h"
 
-float pengurangan (float x, float y) {
+double pengurangan (double x, double y) {
 	return x - y;
 }
 
-float cosinus (float x) {
+double cosinus (double x) {
 	return cos ( (x * phi) / 180 );
 }
 
-float secan (float x) {
+double secan (double x) {
 	return 1 / cos ( (x * phi) / 180 );
 }
 
-float ln (float x) {
-    float hasil;
+double ln (double x) {
+    double hasil;
     hasil = log (x);
     return hasil;
 }

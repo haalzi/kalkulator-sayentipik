@@ -8,56 +8,56 @@
 #define SentiMETER 0.01
 #define MILLIMETER 0.001
 
-float pertambahan (float x, float y);
+double pertambahan (double x, double y);
 
-float perpangkatan (float x, float y);
+double perpangkatan (double x, double y);
 
-float akar (float x);
+double akar (double x, double y);
 
 int modulus (int x, int y);
 
-float persen (float x);
+double persen (double x);
 
-float kombinasi (float x, float y);
+double kombinasi (double x, double y);
 
 
 /* 							KONVERSI SUHU							*/
 				
 // celcius ke fahrenheit
-float convertCelsiuskeFahrenheit(float celsius);
+double convertCelsiuskeFahrenheit(double celsius);
 
 // fahrenheit ke celcius
-float convertFahrenheitkeCelsius(float fahrenheit);
+double convertFahrenheitkeCelsius(double fahrenheit);
 
 // celcius ke reamur
-float convertCelsiuskeReamur(float celsius);
+double convertCelsiuskeReamur(double celsius);
 
 // reamur ke celcius
-float convertReamurkeCelsius(float reamur);
+double convertReamurkeCelsius(double reamur);
 
 // celcius ke kelvin
-float convertCelsiuskeKelvin(float celsius);
+double convertCelsiuskeKelvin(double celsius);
 
 // kelvin ke celcius
-float convertKelvinkeCelsius(float kelvin);
+double convertKelvinkeCelsius(double kelvin);
 
 // fahrenheit ke kelvin
-float convertFahrenheitkeKelvin(float fahrenheit);
+double convertFahrenheitkeKelvin(double fahrenheit);
 
 // kelvin ke fahrenheit
-float convertKelvinkeFahrenheit(float kelvin);
+double convertKelvinkeFahrenheit(double kelvin);
 
 // reamur ke kelvin
-float convertReamurkeKelvin(float reamur);
+double convertReamurkeKelvin(double reamur);
 
 // kelvin ke reamur
-float convertKelvinkeReamur(float kelvin);
+double convertKelvinkeReamur(double kelvin);
 
 /* 							KONVERSI PANJANG							*/
 
 // convert panjang
-float ConvertPanjang(float Panjang, float fromFactor, float toFactor);
+double ConvertPanjang(double Panjang, double fromFactor, double toFactor);
 
-void printMatrix(float **matrix, int rows, int columns);
+void printMatrix(double **matrix, int rows, int columns);
 
-float **transposeMatrix(float **matrix, int rows, int columns);
+double **transposeMatrix(double **matrix, int rows, int columns);

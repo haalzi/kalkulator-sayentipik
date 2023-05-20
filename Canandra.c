@@ -1,35 +1,36 @@
+#include "Canandra.h"
 #include "Rahaditya.h"
 
 //--------------perkalian
-float perkalian (float x, float y) {
+double perkalian (double x, double y) {
 	return x * y;
 }
 
-float sinus (float x) {
+double sinus (double x) {
 	x = (x * phi / 180.0);
     x = sin (x);
 	return x;
 }
 
-float cosecan (float x) {
+double cosecan (double x) {
 	x = (x * phi / 180.0);
     x = 1 / sin (x);
 	return x;
 }
 
 //------------log basis 10
-float logbase10 (float x) {
-	return LN(x) / LN10;
+double logbase10 (double x) {
+	return log (x) / 2.30258509299404568402;
 }
 
-float LN (float x) {
-    float old_sum = 0.0;
-    float xmlxpl = (x - 1) / (x + 1);
-    float xmlxpl_2 = xmlxpl * xmlxpl;
-    float denom = 1.0;
-    float frac = xmlxpl;
-    float term = frac;
-    float sum = term;
+double LN (double x) {
+    double old_sum = 0.0;
+    double xmlxpl = (x - 1) / (x + 1);
+    double xmlxpl_2 = xmlxpl * xmlxpl;
+    double denom = 1.0;
+    double frac = xmlxpl;
+    double term = frac;
+    double sum = term;
 
     while ( sum != old_sum ) {
         old_sum = sum;
@@ -41,8 +42,8 @@ float LN (float x) {
 }
 
 //-------------------------diskriminan
-float diskriminan (float x, float y, float z) {
-	float Diskriminan, akar1, akar2, real, imajiner;
+double diskriminan (double x, double y, double z) {
+	double Diskriminan, akar1, akar2, real, imajiner;
 	
 	Diskriminan = x*x - 4 * y * z;
 	if (Diskriminan == 0) {
@@ -66,7 +67,7 @@ float diskriminan (float x, float y, float z) {
 }
 
 //--------------------------permutasi
-float faktorialPermutasi(float x) {
+double faktorialPermutasi(double x) {
 	if (x==0 || x==1){
 		return 1;
 	}
@@ -75,10 +76,10 @@ float faktorialPermutasi(float x) {
 	}
 }
 
-float permutasi(float x, float y) {
+double permutasi(double x, double y) {
 	return faktorialPermutasi(x)/faktorialPermutasi(x-y);
 }
 
-float lingkaran(float x) {
+double lingkaran(double x) {
 	return phi*x*x;
 }
