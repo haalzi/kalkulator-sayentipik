@@ -148,13 +148,54 @@ double permutasi(double x, double y) {
 // Pembuat		: Canandra Eka Mukti
 
 double lingkaran(double x) {
-	return phi*x*x;
+	return phi*x*x;tv
 }
 // IS :   - Fungsi lingkaran didefinisikan dengan tipe pengembalian double dan satu parameter x dengan tipe double.//
-     //    - Fungsi ini belum dieksekusi.//
+     //   - Fungsi ini belum dieksekusi.//
     
 // FS :   - Fungsi lingkaran berhasil didefinisikan.//
      //Fungsi ini siap digunakan dan akan mengembalikan luas lingkaran dengan jari-jari x ketika dipanggil.//
 
 // Referensi	: www.
 // Pembuat 		: Canandra Eka Mukti
+
+double calculate_factorial(int n) {
+    double factorial = 1;
+    for (int i = 2; i <= n; ++i) {
+        factorial *= i;
+    }
+    return factorial;
+}
+// IS :   - Variabel n dengan nilai yang akan digunakan sebagai input untuk menghitung faktorial.//
+	 //   - Variabel factorial dengan nilai awal 1.//
+	 
+// FS :   - Variabel factorial dengan nilai hasil perhitungan faktorial dari n.//
+	 //   - n memiliki nilai yang ditentukan.//
+     //   - Factorial memiliki nilai yang sesuai dengan hasil faktorial dari n.//
+
+// Referensi	: www.
+// Pembuat		: Canandra Eka Mukti	
+
+double calculate_sine(double x, int terms) {
+    x = x * 3.14159 / 180;  // Mengubah derajat ke radian//
+    double sine = x;
+    double sign = -1;
+    for (int i = 1; i < terms; ++i) {
+        double next_term = sign * (x * x * x) / calculate_factorial(2 * i + 1);
+        sine += next_term;
+        sign *= -1;
+    }
+    return sine;
+}
+
+// IS :    - Variabel x dengan nilai sudut yang akan digunakan sebagai input untuk menghitung sinus.//
+     //    - Variabel terms dengan nilai yang menentukan berapa banyak suku yang akan digunakan dalam perhitungan deret Taylor.//
+     //    - Variabel sine dengan nilai awal x.//
+     //    - Variabel sign dengan nilai awal -1.//
+
+// FS :    - Variabel sine dengan nilai hasil perhitungan sinus dari x.//
+
+// Referensi	: www.
+
+// Pembuat 		: Canandra Eka Mukti
+
