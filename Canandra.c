@@ -199,3 +199,31 @@ double calculate_sine(double x, int terms) {
 
 // Pembuat 		: Canandra Eka Mukti
 
+double calculate_log(double x, int terms) {
+    double result = 0.0;
+    double numerator = x - 1.0;
+    double denominator = x + 1.0;
+
+    for (int i = 1; i <= terms; ++i) {
+        double term = numerator / denominator;
+        result += term / i;
+        numerator *= (x - 1.0);
+        denominator *= (x + 1.0);
+    }
+
+    return 2.0 * result;
+}
+
+// IS  :   -  x belum ditentukan.//
+	 //   -  Terms belum ditentukan.//
+     //   -  result memiliki nilai awal 0.0.//
+     //   -  numerator memiliki nilai x - 1.0.//
+     //   -  denominator memiliki nilai x + 1.0.//
+     
+// FS  :   -  x memiliki nilai yang ditentukan.//
+     //   -  terms memiliki nilai yang ditentukan.//
+     //   -  result memiliki nilai yang sesuai dengan hasil perhitungan logaritma alami dari x.//
+     
+// Referensi	: www.
+
+// Pembuat		: Canandra Eka Mukti

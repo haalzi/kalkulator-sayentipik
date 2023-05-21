@@ -20,3 +20,5 @@ double lingkaran(double x); //fungsi yang digunakan untuk mencari luas lingkaran
 double calculate_factorial(int n); // fungsi yang digunakan untuk mencari value dari faktorial
 
 double calculate_sine(double x, int terms); // fungsi yang digunakan untuk menemukan value dari sine
+
+double calculate_log(double x, int terms) // fungsi yang digunakan untuk menemukan nilai lag
