@@ -19,20 +19,12 @@
 
 typedef struct Node {
     char data;
-    double dataNumber;
     struct Node* next;
 } Node;
 
 typedef struct {
     Node* top;
 } Stack;
-
-//typedef struct {
-//    char stack[256];
-//    double stackNumber[256];
-//    int stackTop;
-//    int stackNumberTop;
-//} STACK;
 
 typedef struct tNodeBinTree* addr;
 typedef struct tNodeBinTree {
@@ -41,12 +33,48 @@ typedef struct tNodeBinTree {
     addr left, right;
 } NodeBinTree;
 
-//typedef struct tree *address;
-//typedef struct tree{
-//	char info[256];
-//	address rs, ls, pr;
-//} Tree;
+// prosedur tampilan
+void gotoxy(int x, int y);
 
+void tampilanStruktur (int pilihStruktur);
+
+void tampilanLogo ();
+
+void informasiInput ();
+
+void tampilanKalkulator (double hasilLayout,  char * outputOperasi);
+
+void tampilanDLL (char inputLayoutDLL);
+
+void pesanEror ();
+
+// fungsi input
+char inputKarakter (char * karakter);
+
+double inputAngka (double * inputAngka);
+
+// kalkulator saintifik
+double operasi (double angkaPertama, double angkaKedua, int operatorKalkulasi);
+
+int prioritas (char operatorPrioritas);
+
+void push (Stack * ss, char x);
+
+void pushAngka (Stack * ss, double x);
+
+char pop (Stack *ss);
+
+double popAngka (Stack * ss);
+
+int isEmpty (Stack * ss);
+
+char * perbaikiString (char * string);
+
+char * negatifBilangan (char * string);
+
+int isSaintifik (char operatorSaintifik);
+
+double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi);
 
 
 /**
@@ -83,7 +111,7 @@ addr insertNodeToTree (double opValue, bool isOperand, addr root);
  * Initial State : elemen-elemen di dalam tree belum ditampilkan.
  * Final State : elemen-elemen di dalam tree sudah ditampilkan ke layar
  */
-void printTree (addr root);
+void storeTree(addr root, char *informasi, char *output, int *index);
 
 /**
  * Type : function
@@ -93,62 +121,11 @@ void printTree (addr root);
  *          pada kasus dimana hanya angka yang diinput sebagai ekspresi matematika.
  * 
  */
-addr createTreeFromPostfix (char* expression);
+addr createTreeFromPostfix (char* expression, char * informasi);
 
 /**
  * Type : function
  * Tujuan : menghitung seluruh operand di dalam binary tree dengan operatornya, lalu
  *          mengembalikan hasil perhitungannya. Dilakukan secara rekursif.
  */
-double calculateTreeExpression(addr root);
-
-/**
- * Type : function
- * Tujuan : melakukan perhitungan antara dua bilangan yang operatornya
- *          adalah operator '+', '*', '/', atau '^'. Kembalikan nilai perhitungannya
- *          dalam bentuk bilangan desimal (double).
- */
-double calculateWithBinaryOperator(int root_operator, double leftNum, double rightNum);
-
-void gotoxy(int x, int y);
-
-
-
-// prosedur tampilan
-void tampilanStruktur (int pilihStruktur);
-
-void tampilanLogo ();
-
-void tampilanKalkulator (double hasilLayout,  char * outputOperasi);
-
-void tampilanDLL (char inputLayoutDLL);
-
-void pesanEror ();
-
-// fungsi input
-char inputKarakter (char * karakter);
-
-double inputAngka (double * inputAngka);
-
-// kalkulator saintifik
-double operasi (double angkaPertama, double angkaKedua, int operatorKalkulasi);
-
-int prioritas (char operatorPrioritas);
-
-void push (Stack * ss, char x);
-
-void pushAngka (Stack * ss, double x);
-
-char pop (Stack *ss);
-
-double popAngka (Stack * ss);
-
-int isEmpty (Stack * ss);
-
-char * perbaikiString (char * string);
-
-char * negatifBilangan (char * string);
-
-int isSaintifik (char operatorSaintifik);
-
-double kalkulasi(char * outputOperasi, char * inputOperasi);
+double calculateTreeExpression(addr root, char * informasi);
