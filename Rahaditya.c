@@ -751,14 +751,14 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	int i = 0, j = 0, k = 0;
 	double angkaPertama, angkaKedua;
 	
-	printf ("\n\nraw input: %s\n", inputOperasi); getch ();
+//	printf ("\n\nraw input: %s\n", inputOperasi); getch ();
 	strcat (informasi, "\nRaw input (infix): ");
 	strcat (informasi, inputOperasi);
     strcpy (inputOperasi, perbaikiString (inputOperasi));
 	strcpy (outputOperasiSem, inputOperasi);
     strcpy (inputOperasi, negatifBilangan (inputOperasi));
 	
-	printf ("\nmodified input: %s\n", inputOperasi); getch ();
+//	printf ("\nmodified input: %s\n", inputOperasi); getch ();
 	strcat (informasi, "\n\nModified input: ");
 	strcat (informasi, inputOperasi);
 	
@@ -896,7 +896,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	}
 	postfix[j--] = '\0';
 	
-	printf ("\nafter shunting yard, before tree: %s\n", postfix); getch();
+//	printf ("\nafter shunting yard, before tree: %s\n", postfix); getch();
 	strcat (informasi, "\n\nPostfix: ");
 	strcat (informasi, postfix);
 	
