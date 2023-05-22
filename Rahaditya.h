@@ -76,56 +76,14 @@ int isSaintifik (char operatorSaintifik);
 
 double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi);
 
-
-/**
- * Type : function
- * Tujuan : membuat sebuah node baru yang dialokasikan di dalam memori
- *          dengan beberapa field node yang berhasil dialokasikan diisi
- *          oleh nilai dari parameter. Pointer left dan right diinisialisasi
- *          oleh nilai NULL.
- */
 addr createNode (double opValue, bool isOperand);
 
-/**
- * Type : procedure
- * Tujuan : mengalokasikan sekian byte memori untuk menyimpan 1 elemen node
- *          pada binary tree kalkulator ini.
- * Initial state : nilai address pada parameter masih bernilai nil
- * Final state : nilai address pada parameter sudah diperbaharui
- */
 void AlokasiMemoriNode (addr* _newNode);
 
-/**
- * Type : function
- * Tujuan : memasukkan node baru ke dalam struktur binary tree dengan melihat
- *          keadaan node son di kiri ataupun di kanannya. Proses bisa dilakukan
- *          secara rekursif hingga ditemui daerah yang dapat dimasuki node baru
- *          ke dalam struktur binary tree.
- */
 addr insertNodeToTree (double opValue, bool isOperand, addr root);
 
-/**
- * Type : procedure
- * Tujuan : Menampilkan seluruh element di dalam tree secara pre-order traversal.
- *          Dimulai dari root node hingga leaf node paling akhir.
- * Initial State : elemen-elemen di dalam tree belum ditampilkan.
- * Final State : elemen-elemen di dalam tree sudah ditampilkan ke layar
- */
 void storeTree(addr root, char *informasi, char *output, int *index);
 
-/**
- * Type : function
- * Tujuan : membuat/membangun binary tree dari notasi postfix pada parameter input.
- *          Pembacaan notasi postfix dilakukan dari belakang agar selalu dipastikan
- *          bahwa root node dari tree yang dibangun merupakan operator. Kecuali
- *          pada kasus dimana hanya angka yang diinput sebagai ekspresi matematika.
- * 
- */
 addr createTreeFromPostfix (char* expression, char * informasi);
 
-/**
- * Type : function
- * Tujuan : menghitung seluruh operand di dalam binary tree dengan operatornya, lalu
- *          mengembalikan hasil perhitungannya. Dilakukan secara rekursif.
- */
 double calculateTreeExpression(addr root, char * informasi);

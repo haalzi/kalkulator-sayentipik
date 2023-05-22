@@ -5,7 +5,7 @@
 #include "Ryan.h"
 
 int main () {
-	char outputOperasi, inputOperasi[256], informasi[256];
+	char outputOperasi, inputOperasi[256], informasi[512];
 	int i;
 	
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);

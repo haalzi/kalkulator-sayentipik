@@ -747,7 +747,7 @@ int isSaintifik (char operatorSaintifik) {
 double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	Stack s;
     s.top = NULL;
-    char postfix[100], inputOperasiSem[256], outputOperasiSem[256], operatorOperasi, ch, phiInput[30] = "3.14159265358979323846", eInput[10] = "2.71828";
+    char postfix[100], inputOperasiSem[256], operatorOperasi, ch, phiInput[30] = "3.14159265358979323846", eInput[10] = "2.71828";
 	int i = 0, j = 0, k = 0;
 	double angkaPertama, angkaKedua;
 	
@@ -755,7 +755,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	strcat (informasi, "\nRaw input (infix): ");
 	strcat (informasi, inputOperasi);
     strcpy (inputOperasi, perbaikiString (inputOperasi));
-	strcpy (outputOperasiSem, inputOperasi);
+	strcpy (outputOperasi, inputOperasi);
     strcpy (inputOperasi, negatifBilangan (inputOperasi));
 	
 //	printf ("\nmodified input: %s\n", inputOperasi); getch ();
@@ -765,7 +765,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
     while (inputOperasi[i]) {
     	if (inputOperasi[i] == ' ') continue;
     	else if (!((inputOperasi[i] == 'm' || inputOperasi[i] == 'M') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 'd' || inputOperasi[i+2] == 'D')) && !((inputOperasi[i] == 'a' || inputOperasi[i] == 'A') && (inputOperasi[i+1] == 'b' || inputOperasi[i+1] == 'B') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S')) && !((inputOperasi[i-1] != 's' || inputOperasi[i-1] != 'S') && (inputOperasi[i] == 'e' || inputOperasi[i] == 'E') && (inputOperasi[i+1] != 'c' || inputOperasi[i+1] != 'C')) && !((inputOperasi[i] == 'p' || inputOperasi[i] == 'P') && (inputOperasi[i+1] == 'h' || inputOperasi[i+1] == 'H') && (inputOperasi[i+2] == 'i' || inputOperasi[i+2] == 'I')) && !((inputOperasi[i] == 'l' || inputOperasi[i] == 'L') && (inputOperasi[i+1] == 'n' || inputOperasi[i+1] == 'N')) && !((inputOperasi[i] == 'l' || inputOperasi[i] == 'L') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 'g' || inputOperasi[i+2] == 'G')) && !((inputOperasi[i] == 's' || inputOperasi[i] == 'S') && (inputOperasi[i+1] == 'i'|| inputOperasi[i+1] == 'I') && (inputOperasi[i+2] == 'n' || inputOperasi[i+2] == 'N')) && !((inputOperasi[i] == 'c' || inputOperasi[i] == 'C') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 's' || inputOperasi[i+2] == 'S') && (inputOperasi[i+3] != 'e' && inputOperasi[i+3] != 'E')) && !((inputOperasi[i] == 't' || inputOperasi[i] == 'T') && (inputOperasi[i+1] == 'a' || inputOperasi[i+1] == 'A') && (inputOperasi[i+2] == 'n' || inputOperasi[i+2] == 'N')) && !((inputOperasi[i] != 'o' || inputOperasi[i] != 'O') && (inputOperasi[i] == 's' || inputOperasi[i] == 'S') && (inputOperasi[i+1] == 'e' || inputOperasi[i+1] == 'E') && (inputOperasi[i+2] == 'c' || inputOperasi[i+2] == 'C')) && !((inputOperasi[i] == 'c' || inputOperasi[i] == 'C') && (inputOperasi[i+1] == 'o' || inputOperasi[i+1] == 'O') && (inputOperasi[i+2] == 't' || inputOperasi[i+2] == 'T')) && !isdigit(inputOperasi[i]) && inputOperasi[i] != '.' && inputOperasi[i] != '+' && inputOperasi[i] != '-' && inputOperasi[i] != '*' && inputOperasi[i] != '/' && inputOperasi[i] != '^' && inputOperasi[i] != '%' && inputOperasi[i] != '!' && inputOperasi[i] != 'v' && inputOperasi[i] != '(' && inputOperasi[i] != ')') {
-    		strcpy (outputOperasi, "Anda salah meng-inputkan");
+    		strcpy (outputOperasi, "Anda salah menginputkan");
 			return 1;
 		}
 //		else if (inputOperasi[i+1] != '(' && inputOperasi[i+1] != ')' && inputOperasi[i] != ')' && ((!isdigit(inputOperasi[i]) && !isdigit(inputOperasi[i+1])) || (inputOperasi[i] == 'a' || inputOperasi[i] == 'A' || inputOperasi[i] == 'b' || inputOperasi[i] == 'B' || inputOperasi[i] == 'c' || inputOperasi[i] == 'C' || inputOperasi[i] == 'd' || inputOperasi[i] == 'D' || inputOperasi[i] == 'e' || inputOperasi[i] == 'E' || inputOperasi[i] == 'g' || inputOperasi[i] == 'G' || inputOperasi[i] == 'h' || inputOperasi[i] == 'H' || inputOperasi[i] == 'i' || inputOperasi[i] == 'I' || inputOperasi[i] == 'l' || inputOperasi[i] == 'L' || inputOperasi[i] == 'm' || inputOperasi[i] == 'M' || inputOperasi[i] == 'n' || inputOperasi[i] == 'N' || inputOperasi[i] == 'o' || inputOperasi[i] == 'O' || inputOperasi[i] == 'p' || inputOperasi[i] == 'P' || inputOperasi[i] == 's' || inputOperasi[i] == 'S' || inputOperasi[i] == 't' || inputOperasi[i] == 'T'))) {
@@ -902,7 +902,7 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	
 	addr treeRoot = createTreeFromPostfix (postfix, informasi);
 	double result = calculateTreeExpression(treeRoot, informasi);
-	strcpy (outputOperasi, outputOperasiSem);
+//	strcpy (outputOperasi, outputOperasiSem);
 	return result;
 }
 
@@ -916,7 +916,6 @@ addr createNode(double opValue, bool isOperand) {
         left(_newNode) = nil;
         right(_newNode) = nil;
     }
-
     return _newNode;
 }
 
@@ -932,38 +931,31 @@ addr insertNodeToTree (double opValue, bool isOperand, addr root) {
         return createNode(opValue, isOperand);
     }
 
-    // jika pointer right bernilai NULL ataupun right bukan digit/operand
-    // kunjungi daerah sub-tree kanan untuk diisi node baru
+    // jika pointer right bernilai NULL ataupun right bukan operand, kunjungi daerah sub-tree kanan untuk diisi node baru
     if (right(root) == nil || !isOperand(right(root))) {
         newNode = insertNodeToTree(opValue, isOperand, right(root));
         if (newNode != nil) {
-            // hubungkan node baru dengan parentnya
             right(root) = newNode;
             return root;
         }
     }
 
-    // jika pointer left bernilai NULL ataupun left bukan digit/operand, 
-    // DAN nilai node root bukan karakter operator yang dapat hanya memerlukan satu operand
-    // kunjungi daerah sub-tree kiri untuk diisi node baru
-    
+    // jika pointer left bernilai NULL ataupun left bukan digit/operand, dan nilai node root bukan karakter operator yang dapat hanya memerlukan satu operand, kunjungi daerah sub-tree kiri untuk diisi node baru
     if (opVal(root) != '!' && opVal(root) != '%' && opVal(root) != 'a' && opVal(root) != 'b' && opVal(root) != 'c' && opVal(root) != 'j' && opVal(root) != 'e' && opVal(root) != 'f' && opVal(root) != 'g' && opVal(root) != 'h' && opVal(root) != 'k' && (left(root) == nil || !isOperand(left(root)))) {
         newNode = insertNodeToTree(opValue, isOperand, left(root));
         if (newNode != nil) {
-            // hubungkan node baru dengan parentnya
             left(root) = newNode;
             return root;
         }
     }
 
-    // jika tidak memenuhi 3 kriteria di atas, kembalikan nilai NULL
     return nil;
 }
 
+//preorder traversal
 void storeTree(addr root, char *informasi, char *output, int *index) {
     if (root != nil) {
         if (isOperand(root)) {
-            // Use fmod to count the remainders of floating number (instead of using % operator)
             if (fmod(opVal(root), 1.00) != 0.00) {
                 char number[10];
                 snprintf(number, sizeof(number), "%.2f", opVal(root));
@@ -990,20 +982,20 @@ addr createTreeFromPostfix (char* expression, char * informasi) {
     char number[40], output[100];
     double temp;
 
-    // read every character in expression array one by one from the end to the very first char
+    // Baca setiap karakter dalam Expression Array satu per satu dari akhir hingga karakter pertama
     for (i = strlen(expression) - 1; i >= 0; i--) {
         if (expression[i] == ' ') {
       		continue;
    		}
 
-        // masukkan elemen operand/angka ke dalam tree
+        // masukkan elemen operand ke dalam tree
         if (isdigit(expression[i]) || expression[i] == '.') {
-            index = 0;  // indeks pada array of digit character saja
+            index = 0;
             do {
                 // cari digit angka sampai ditemukan karakter non-angka
                 number[index++] = expression[i--];
             } while ((i >= 0 && isdigit(expression[i])) || expression[i] == '.');
-            number [index] = '\0'; // beri pembatas terminator karena masih dalam bentuk array
+            number [index] = '\0';
 
             // ubah string number yang dibalik ke dalam bilangan bertipe double
             temp = strtod(strrev(number), NULL); 
@@ -1018,7 +1010,7 @@ addr createTreeFromPostfix (char* expression, char * informasi) {
         
     }
 //	printf ("\nTree: ");
-	strcat (informasi, "\n\nTree: ");
+	strcat (informasi, "\n\nTree (Preorder): ");
 	memset(output,0,strlen(output));
     storeTree (tree, informasi, output, 0);
     strcat (informasi, output);
@@ -1037,7 +1029,6 @@ double calculateTreeExpression(addr root, char * informasi) {
     	return opVal(root);
 	}
 	
-	// Menelusuri sub-tree kanan secara rekursif hingga ditemui operand
 	if (opVal(root) == '!' || opVal(root) == '%' || opVal(root) == 'a' || opVal(root) == 'b' || opVal(root) == 'c' || opVal(root) == 'j' || opVal(root) == 'e' || opVal(root) == 'f' || opVal(root) == 'g' || opVal(root) == 'h' || opVal(root) == 'k') {
 	    if (right(root) != NULL) {
 			rightNumber = calculateTreeExpression(right(root), informasi);
@@ -1079,13 +1070,12 @@ double calculateTreeExpression(addr root, char * informasi) {
     snprintf(operator, sizeof(operator), "%c", (int)opVal(root));
     strcat(informasi, operator);
 	
-	
 	result = operasi (leftNumber, rightNumber, (int)(opVal(root)));
 	
-//				memset(number,0,strlen(number));
-//    strcat (informasi, "\nResult: ");
-//            snprintf(number, sizeof(number), "%g", result);
-//            strcat(informasi, number);
+	memset(number,0,strlen(number));
+	strcat (informasi, "\nResult: ");
+	snprintf(number, sizeof(number), "%g", result);
+	strcat(informasi, number);
 	
 //	printf ("Result : %g\n", result); getch ();
 	return result;
