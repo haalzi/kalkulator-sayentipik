@@ -3,10 +3,12 @@
 #include <conio.h>
 #define pi 3.14159265358979323846
 
-float bagi(double x, double y);
-float exponen(double x, int y);
-float fact(float n);
+double bagi(double x, double y);
+double exponen(double x, int y);
+double fact(double n);
 double tangen(double x);
 double sinus(double x);
 double cosinus(double x);
-float mutlak(float x);
+double mutlak(double x);
+double power(double base, int exp);
+double sinus(double deg);
