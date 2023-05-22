@@ -1,14 +1,10 @@
 #include "Hafidzon.h"
+#include "Rahaditya.h"
 
-double bagi(double x, double y) {
-	return x/y;
+double pembagian(double x, double y) {
+	return x / y;
 }
-
-double exponen(double x,int y) {
-	//Initial State	: x yang akan di eksponenkan dan y berapa kali eksponen dilakukan
-	//Final State	: pow sebagai hasil eksponen angka sebanyak y dikembalikan
-	//Referensi		: -
-	//Kontributor	: -
+double eksponen(double x,int y) {
 	double pow = 1;
 	int i;
 	for (i = 1; i <= y; i++) {
@@ -16,12 +12,7 @@ double exponen(double x,int y) {
 	}
 	return pow;
 }
-
-double fact(double x) {
-	//Initial State	: x bilangan yang akan difaktorialkan
-	//Final State	: fact dikembalikan sebagai hasil faktorial x
-	//Referensi		: -
-	//Kontributor	: -
+double faktorial(double x) {
 	double fact = 1;
 	int i;
 	for (i = 1; i <= x; i++) {
@@ -31,19 +22,15 @@ double fact(double x) {
 }
 
 double tangen(double x) {
-	//Initial State	: x bilangan yang akan di tangenkan
-	//Final State	: karena tangen merupakan sin/cos maka dikembalikan
-	//Referensi		: -
-	//Kontributor	: -
-	x = (x * pi / 180.0);
-	return (sinus(x)/cosinus(x));
+	x = (x * phi / 180.0);
+	return (sinuss(x)/cosinuss(x));
+}
+
+double cotangen(double x){
+	return (1/tangen(x));
 }
 
 double power(double base, int exp) {
-	//Initial State	: base bilangan yang akan di pangkatkan dan exp pangkat dari base
-	//Final State	: mengembalikan nilai hasil perpangkatan
-	//Referensi		: https://stackoverflow.com/questions/38917692/sin-cos-funcs-without-math-h
-	//Kontributor	: -
 	if(exp < 0) {
 		if(base == 0)
 			return -0;
@@ -57,14 +44,10 @@ double power(double base, int exp) {
 }
 
 int facttan(int n) {
-	return n <= 0 ? 1 : n * fact(n-1);
+	return n <= 0 ? 1 : n * facttan(n-1);
 }
 
-double sinus(double deg) {
-	//Initial State	: deg adalah derajat yang akan diubah ke dalam sinus
-	//Final State	: sin dikembalikan sebagai hasil perhitungan sinus
-	//Referensi		: https://stackoverflow.com/questions/38917692/sin-cos-funcs-without-math-h
-	//Kontributor	: -
+double sinuss(double deg) {
 	double sin = 0;
 
 	int i;
@@ -74,11 +57,7 @@ double sinus(double deg) {
 	return sin;
 }
 
-double cosinus(double deg) {
-	//Initial State	: deg adalah derajat yang akan diubah ke dalam cosinus
-	//Final State	: cos dikembalikan sebagai hasil perhitungan cosinus
-	//Referensi		: https://stackoverflow.com/questions/38917692/sin-cos-funcs-without-math-h
-	//Kontributor	: -
+double cosinuss(double deg) {
 	double cos = 0;
 
 	int i;
@@ -87,13 +66,6 @@ double cosinus(double deg) {
 	}
 	return cos;
 }
-
-double mutlak(double x) {
-	//Initial State	: Angka
-	//Final State	:
-	//Referensi		:
-	//Kontributor	:
-	if (x < 0) {
-		return -x;
-	}
+double mutlak (double x) {
+	return (x < 0) ? -x : x;
 }
