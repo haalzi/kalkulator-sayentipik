@@ -89,7 +89,7 @@ void informasiInput() {
 	gotoxy (150, 30);
 	printf ("Phi          = \"Aphi\", \"phiA\", \"A+phi\", \"phi+A\"");
 	gotoxy (150, 31);
-	printf ("e            = \"Ae\", \"eA\", \"A+e\", \"e+A\"");
+	printf ("Euler        = \"Ae\", \"eA\", \"A+e\", \"e+A\"");
 	gotoxy (150, 32);
 	printf ("Logaritma    = \"logA\", \"BlogA\", \"log(A)\", \"Blog(A)\"");
 	gotoxy (150, 33);
@@ -591,7 +591,7 @@ double inputAngka (double * angka) {
 double operasi (double angkaPertama, double angkaKedua, int operatorKalkulasi) {
     switch (operatorKalkulasi) {
     	case 'a':
-    		return sinusS (angkaKedua);
+    		return sinus (angkaKedua);
     	case 'b':
     		return cosinus (angkaKedua);
     	case 'c':
@@ -733,15 +733,6 @@ char *negatifBilangan(char *string) {
         i++;
     }
     return string;
-}
-
-int isSaintifik (char operatorSaintifik) {
-    if(operatorSaintifik == 'a' || operatorSaintifik == 'b' || operatorSaintifik == 's' || operatorSaintifik == 'p' || operatorSaintifik == 'h' ||operatorSaintifik == 'c' || operatorSaintifik == 'o' || operatorSaintifik == 's' || operatorSaintifik == 't' || operatorSaintifik == 'e' || operatorSaintifik == 'n' || operatorSaintifik == 'i' || operatorSaintifik == 'l') {
-    	return 1;
-	}
-    else {
-    	return 0;
-	}
 }
 
 double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
@@ -902,7 +893,6 @@ double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi) {
 	
 	addr treeRoot = createTreeFromPostfix (postfix, informasi);
 	double result = calculateTreeExpression(treeRoot, informasi);
-//	strcpy (outputOperasi, outputOperasiSem);
 	return result;
 }
 
@@ -911,7 +901,7 @@ addr createNode(double opValue, bool isOperand) {
     AlokasiMemoriNode(&_newNode);
 
     if (_newNode != nil) {
-        opVal(_newNode) = opValue;
+        opValue(_newNode) = opValue;
         isOperand(_newNode) = isOperand;
         left(_newNode) = nil;
         right(_newNode) = nil;
@@ -941,7 +931,7 @@ addr insertNodeToTree (double opValue, bool isOperand, addr root) {
     }
 
     // jika pointer left bernilai NULL ataupun left bukan digit/operand, dan nilai node root bukan karakter operator yang dapat hanya memerlukan satu operand, kunjungi daerah sub-tree kiri untuk diisi node baru
-    if (opVal(root) != '!' && opVal(root) != '%' && opVal(root) != 'a' && opVal(root) != 'b' && opVal(root) != 'c' && opVal(root) != 'j' && opVal(root) != 'e' && opVal(root) != 'f' && opVal(root) != 'g' && opVal(root) != 'h' && opVal(root) != 'k' && (left(root) == nil || !isOperand(left(root)))) {
+    if (opValue(root) != '!' && opValue(root) != '%' && opValue(root) != 'a' && opValue(root) != 'b' && opValue(root) != 'c' && opValue(root) != 'j' && opValue(root) != 'e' && opValue(root) != 'f' && opValue(root) != 'g' && opValue(root) != 'h' && opValue(root) != 'k' && (left(root) == nil || !isOperand(left(root)))) {
         newNode = insertNodeToTree(opValue, isOperand, left(root));
         if (newNode != nil) {
             left(root) = newNode;
@@ -956,18 +946,18 @@ addr insertNodeToTree (double opValue, bool isOperand, addr root) {
 void storeTree(addr root, char *informasi, char *output, int *index) {
     if (root != nil) {
         if (isOperand(root)) {
-            if (fmod(opVal(root), 1.00) != 0.00) {
+            if (fmod(opValue(root), 1.00) != 0.00) {
                 char number[10];
-                snprintf(number, sizeof(number), "%.2f", opVal(root));
+                snprintf(number, sizeof(number), "%.2f", opValue(root));
                 strcat(output, number);
             } else {
                 char number[10];
-                snprintf(number, sizeof(number), "%.0f", opVal(root));
+                snprintf(number, sizeof(number), "%.0f", opValue(root));
                 strcat(output, number);
             }
         } else {
             char operator[2];
-            snprintf(operator, sizeof(operator), "%c", (int)opVal(root));
+            snprintf(operator, sizeof(operator), "%c", (int)opValue(root));
             strcat(output, operator);
         }
         strcat(output, " ");
@@ -982,30 +972,22 @@ addr createTreeFromPostfix (char* expression, char * informasi) {
     char number[40], output[100];
     double temp;
 
-    // Baca setiap karakter dalam Expression Array satu per satu dari akhir hingga karakter pertama
     for (i = strlen(expression) - 1; i >= 0; i--) {
         if (expression[i] == ' ') {
-      		continue;
-   		}
+			continue;
+		}
 
-        // masukkan elemen operand ke dalam tree
         if (isdigit(expression[i]) || expression[i] == '.') {
             index = 0;
             do {
-                // cari digit angka sampai ditemukan karakter non-angka
                 number[index++] = expression[i--];
             } while ((i >= 0 && isdigit(expression[i])) || expression[i] == '.');
             number [index] = '\0';
-
-            // ubah string number yang dibalik ke dalam bilangan bertipe double
-            temp = strtod(strrev(number), NULL); 
-            // masukkan elemen digit pada array temp ke dalam tree (karena bisa jadi digit lebih dari satu)
-            tree = insertNodeToTree(temp, true, tree);
+            temp = strtod(strrev(number), NULL);
+            tree = insertNodeToTree(temp, true, tree); // masukkan elemen digit pada array temp ke dalam tree (karena bisa jadi digit lebih dari satu)
         }
-		
-        // langsung masukkan elemen operator ke dalam tree
         else {
-            tree = insertNodeToTree(expression[i], false, tree);
+            tree = insertNodeToTree(expression[i], false, tree); // langsung masukkan elemen operator ke dalam tree
         }
         
     }
@@ -1026,10 +1008,10 @@ double calculateTreeExpression(addr root, char * informasi) {
 	
     // Ditemui element node merupakan digit operand
 	if (isOperand(root)) {
-    	return opVal(root);
+    	return opValue(root);
 	}
 	
-	if (opVal(root) == '!' || opVal(root) == '%' || opVal(root) == 'a' || opVal(root) == 'b' || opVal(root) == 'c' || opVal(root) == 'j' || opVal(root) == 'e' || opVal(root) == 'f' || opVal(root) == 'g' || opVal(root) == 'h' || opVal(root) == 'k') {
+	if (opValue(root) == '!' || opValue(root) == '%' || opValue(root) == 'a' || opValue(root) == 'b' || opValue(root) == 'c' || opValue(root) == 'j' || opValue(root) == 'e' || opValue(root) == 'f' || opValue(root) == 'g' || opValue(root) == 'h' || opValue(root) == 'k') {
 	    if (right(root) != NULL) {
 			rightNumber = calculateTreeExpression(right(root), informasi);
 //			printf ("\noperand : %g\n", rightNumber); getch();
@@ -1064,13 +1046,13 @@ double calculateTreeExpression(addr root, char * informasi) {
         strcat(informasi, number);
 	}
 	
-//	printf ("operator : %c\n", (int)(opVal(root))); getch ();
+//	printf ("operator : %c\n", (int)(opValue(root))); getch ();
 	
     strcat (informasi, "\nOperator: ");
-    snprintf(operator, sizeof(operator), "%c", (int)opVal(root));
+    snprintf(operator, sizeof(operator), "%c", (int)opValue(root));
     strcat(informasi, operator);
 	
-	result = operasi (leftNumber, rightNumber, (int)(opVal(root)));
+	result = operasi (leftNumber, rightNumber, (int)(opValue(root)));
 	
 	memset(number,0,strlen(number));
 	strcat (informasi, "\nResult: ");

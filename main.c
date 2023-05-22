@@ -42,6 +42,7 @@ int main () {
 				    printf ("%c", informasi[i]);
 				    Sleep(1);
 				    if (informasi[i-1] == '\n' && informasi[i] == '\n') {
+				    	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 				    	getch ();
 					}
 				}

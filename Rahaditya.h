@@ -11,7 +11,7 @@
 #define LN10 2.3025850929940456840179914546844
 #define e 2.71828
 #define nil NULL
-#define opVal(P) P->opValue
+#define opValue(P) P->opValue
 #define isOperand(P) P->isOperand
 #define left(P) P->left
 #define right(P) P->right
@@ -60,19 +60,13 @@ int prioritas (char operatorPrioritas);
 
 void push (Stack * ss, char x);
 
-void pushAngka (Stack * ss, double x);
-
 char pop (Stack *ss);
-
-double popAngka (Stack * ss);
 
 int isEmpty (Stack * ss);
 
 char * perbaikiString (char * string);
 
 char * negatifBilangan (char * string);
-
-int isSaintifik (char operatorSaintifik);
 
 double kalkulasi(char * outputOperasi, char * inputOperasi, char * informasi);
 
